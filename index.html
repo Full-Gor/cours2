@@ -3,10 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cours de langue arabe avec les livres de Médine (Tomes 1-4). Forfaits flexibles pour duo ou groupe.">
-  <meta name="keywords" content="cours arabe, livres Médine, apprentissage arabe, forfaits flexibles">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Cours de langue arabe authentique avec les livres de Médine (Tomes 1-4). Forfaits flexibles pour solo ou groupe. Professeurs qualifiés et méthode éprouvée.">
+  <meta name="keywords" content="cours arabe, livres Médine, apprentissage arabe, forfaits flexibles, langue arabe, cours en ligne, professeur arabe">
   <meta name="author" content="Arabe Cours">
-  <title>Arabe Cours - Apprenez l'Arabe Authentique</title>
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="fr-FR">
+  <meta name="geo.region" content="FR">
+  <meta name="geo.placename" content="France">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Arabe Cours - Apprenez l'Arabe Authentique">
+  <meta property="og:description" content="Cours immersifs basés sur les Tomes 1 à 4 de Médine. Forfaits flexibles pour tous niveaux.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://votresite.com">
+  <meta property="og:image" content="https://votresite.com/arab.jpeg">
+  <meta property="og:locale" content="fr_FR">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arabe Cours - Apprenez l'Arabe Authentique">
+  <meta name="twitter:description" content="Cours immersifs basés sur les Tomes 1 à 4 de Médine">
+  <meta name="twitter:image" content="https://votresite.com/arab.jpeg">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Arabe Cours",
+    "description": "École de langue arabe spécialisée dans la méthode Médine",
+    "url": "https://votresite.com",
+    "telephone": "+33644762721",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "FR"
+    },
+    "offers": [
+      {
+        "@type": "Course",
+        "name": "Cours d'Arabe Méthode Médine",
+        "description": "Cours basés sur les livres de Médine, Tomes 1 à 4",
+        "provider": "Arabe Cours"
+      }
+    ]
+  }
+  </script>
+  
+  <title>Arabe Cours - Apprenez l'Arabe Authentique | Méthode Médine</title>
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage-compat.js"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Lora:wght@400;700&display=swap">
   <style>
@@ -58,7 +124,7 @@
       animation: pulse 2s infinite;
     }
 
-    /* 3D Card Flip (Horizontal) */
+    /* 3D Card Flip */
     .perspective-1000 {
       perspective: 1000px;
     }
@@ -74,18 +140,17 @@
     .rotate-y-180 {
       transform: rotateY(180deg);
     }
-    .rotate-y-180 ul li {
-  color: black;
-}
-.rotate-y-180 a {
-  color: white;
-  background-color: var(--secondary);
-  display: block;
-}
 
-.rotate-y-180 ul li {
-  color: black;
-}
+    .rotate-y-180 ul li {
+      color: black;
+    }
+
+    .rotate-y-180 a {
+      color: white;
+      background-color: var(--secondary);
+      display: block;
+    }
+
     /* Navbar */
     .nav-link:hover::after {
       content: '';
@@ -161,72 +226,298 @@
       color: white;
       transform: scale(1.2);
     }
-    /* Rendre les boutons du formulaire toujours visibles */
-#bookingForm button {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-}
 
-/* S'assurer que le bouton Suivant/Envoyer est bien visible */
-#bookingForm .submit-btn {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  animation: none; /* Supprimer l'animation de pulsation pour une meilleure visibilité */
-}
+    /* Admin Styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 2000;
+      backdrop-filter: blur(5px);
+    }
 
-/* Améliorer la visibilité des boutons du formulaire */
-#bookingForm .flex button {
-  opacity: 1;
-  visibility: visible;
-}
+    .modal-overlay.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* Styles pour les éléments retournés des cartes de forfaits */
-.rotate-y-180 a {
-  color: white;
-  background-color: var(--secondary);
-  display: block;
-}
+    .modal-content {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+      max-width: 95%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideIn 0.3s ease;
+      color: white;
+    }
 
-.rotate-y-180 ul li {
-  color: black;
-}
-/* Style amélioré pour les boutons du formulaire */
-#bookingForm button {
-  opacity: 1 !important;
-  visibility: visible !important;
-  background-color: #4A7043 !important; /* Couleur primaire */
-  color: white !important;
-  border: 2px solid #4A7043 !important;
-  font-weight: bold !important;
-  padding: 10px 20px !important;
-  border-radius: 10px !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
-}
+    .password-modal {
+      text-align: center;
+      min-width: 300px;
+    }
 
-#bookingForm button:hover {
-  background-color: #F4A261 !important; /* Couleur secondaire */
-  border-color: #F4A261 !important;
-  transform: translateY(-2px) !important;
-}
+    .password-modal h2 {
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
 
-/* Style spécifique pour le bouton de soumission */
-#bookingForm .submit-btn {
-  background-color: #F4A261 !important; /* Couleur secondaire */
-  border-color: #F4A261 !important;
-}
+    .password-modal input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+    }
 
-#bookingForm .submit-btn:hover {
-  background-color: #e8863b !important; /* Version plus foncée de la couleur secondaire */
-  border-color: #e8863b !important;
-}
+    .password-modal button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background: var(--secondary);
+      color: black;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-/* Suppression de l'animation de pulsation */
-.animate-pulse {
-  animation: none !important;
-}
+    .password-modal button:hover {
+      background: #e8863b;
+    }
+
+    .admin-panel {
+      width: 900px;
+      max-width: 95vw;
+    }
+
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--secondary);
+    }
+
+    .admin-header h2 {
+      color: var(--secondary);
+      font-size: 2rem;
+    }
+
+    .close-admin {
+      background: #ff4444;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .admin-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      flex-wrap: wrap;
+    }
+
+    .admin-tab {
+      padding: 12px 24px;
+      background: transparent;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .admin-tab.active {
+      color: var(--secondary);
+    }
+
+    .admin-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--secondary);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--secondary);
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+    }
+
+    .form-group select option {
+      background: #2d2d2d;
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: black;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-right: 10px;
+    }
+
+    .btn-primary:hover {
+      background: #e8863b;
+    }
+
+    .btn-danger {
+      background: #ff4444;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-edit {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .list-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .list-item.editing {
+      background: rgba(244, 162, 97, 0.1);
+      border: 1px solid var(--secondary);
+    }
+
+    .list-item-view {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .list-item-edit {
+      display: none;
+    }
+
+    .list-item.editing .list-item-view {
+      display: none;
+    }
+
+    .list-item.editing .list-item-edit {
+      display: block;
+    }
+
+    .firebase-status {
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .firebase-status.connected {
+      background: rgba(0, 255, 0, 0.2);
+      color: #00ff00;
+    }
+
+    .firebase-status.disconnected {
+      background: rgba(255, 0, 0, 0.2);
+      color: #ff4444;
+    }
+
+    .sync-indicator {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 5px;
+      display: none;
+      z-index: 3000;
+      color: white;
+    }
+
+    .sync-indicator.show {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .admin-panel {
+        padding: 20px;
+      }
+
+      .admin-tabs {
+        font-size: 14px;
+      }
+
+      .admin-tab {
+        padding: 8px 16px;
+      }
+
+      .list-item-view {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .list-item-actions {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+      }
+    }
   </style>
 </head>
 <body>
@@ -234,13 +525,11 @@
     <!-- Navbar -->
     <header class="fixed top-0 left-0 w-full z-50 bg-var(--background) shadow-md" id="header">
       <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="#home" class="flex items-center space-x-2">
-                <span class="text-2xl font-bold text-var(--text)" style="font-family: 'Lora', serif;">Cours d'Arabe</span>
-              </a>
-         
-         
+        <a href="#home" class="flex items-center space-x-2" id="logoLink">
+          <span class="text-2xl font-bold text-var(--text)" style="font-family: 'Lora', serif;" id="logoText">Cours d'Arabe</span>
+        </a>
        
-        <nav class="hidden md:flex space-x-8">
+        <nav class="hidden md:flex space-x-8" id="mainNav">
           <a href="#home" class="nav-link relative text-var(--text) font-medium">Accueil</a>
           <a href="#services" class="nav-link relative text-var(--text) font-medium">Services</a>
           <a href="#packages" class="nav-link relative text-var(--text) font-medium">Forfaits</a>
@@ -258,7 +547,7 @@
 
       <!-- Mobile Menu -->
       <div class="md:hidden hidden bg-var(--background) shadow-lg transition-all duration-300" id="mobileMenu">
-        <nav class="flex flex-col space-y-4 px-6 py-4">
+        <nav class="flex flex-col space-y-4 px-6 py-4" id="mobileNav">
           <a href="#home" class="text-var(--text) font-medium hover:text-var(--primary)">Accueil</a>
           <a href="#services" class="text-var(--text) font-medium hover:text-var(--primary)">Services</a>
           <a href="#packages" class="text-var(--text) font-medium hover:text-var(--primary)">Forfaits</a>
@@ -269,11 +558,11 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center bg-var(--primary) pt-20">
-      <div class="absolute inset-0 opacity-20" style="background-image: url('/arab.jpeg'); background-size: cover; background-position: center;"></div>
+      <div class="absolute inset-0 opacity-20" id="heroImage" style="background-image: url('/arab.jpeg'); background-size: cover; background-position: center;"></div>
       <div class="relative z-10 text-center px-4 max-w-4xl">
-        <h1 class="text-4xl md:text-6xl font-bold text-white animate-slide-in">Apprenez l'Arabe Authentique</h1>
-        <p class="text-xl md:text-2xl text-var(--secondary) mt-4 animate-slide-in" style="animation-delay: 0.2s;">Cours immersifs basés sur les Tomes 1 à 4 de Médine</p>
-        <a href="#book-now" class="inline-block mt-8 bg-var(--secondary) hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-full underline-btn animate-slide-in" style="animation-delay: 0.4s;">
+        <h1 class="text-4xl md:text-6xl font-bold text-white animate-slide-in" id="heroTitle">Apprenez l'Arabe Authentique</h1>
+        <p class="text-xl md:text-2xl text-var(--secondary) mt-4 animate-slide-in" style="animation-delay: 0.2s;" id="heroSubtitle">Cours immersifs basés sur les Tomes 1 à 4 de Médine</p>
+        <a href="#book-now" class="inline-block mt-8 bg-var(--secondary) hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-full underline-btn animate-slide-in" style="animation-delay: 0.4s;" id="heroButton">
           S'inscrire Aujourd'hui
         </a>
       </div>
@@ -283,8 +572,8 @@
     <section id="services" class="py-20 bg-white animate-fade-in">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-var(--text) mb-4 animate-slide-in">Nos Forces</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s;">
+          <h2 class="text-3xl md:text-4xl font-bold text-var(--text) mb-4 animate-slide-in" id="servicesTitle">Nos Forces</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s;" id="servicesDescription">
             Une méthode éprouvée pour un apprentissage rapide
           </p>
         </div>
@@ -296,8 +585,8 @@
     <section id="packages" class="py-20 bg-var(--background)">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-var(--text) mb-4 animate-slide-in">Forfaits Adaptés</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s;">
+          <h2 class="text-3xl md:text-4xl font-bold text-var(--text) mb-4 animate-slide-in" id="packagesTitle">Forfaits Adaptés</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s;" id="packagesDescription">
             Choisissez le plan qui vous convient
           </p>
         </div>
@@ -310,8 +599,8 @@
     <section id="book-now" class="py-20 bg-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-var(--text) mb-4 animate-slide-in">Démarrez Votre Parcours</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s;">
+          <h2 class="text-3xl md:text-4xl font-bold text-var(--text) mb-4 animate-slide-in" id="bookingTitle">Démarrez Votre Parcours</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s;" id="bookingDescription">
             Inscrivez-vous en quelques étapes simples
           </p>
         </div>
@@ -331,238 +620,583 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-var(--primary) text-white py-12">
+    <footer class="bg-var(--primary) text-white py-12" id="footer">
       <div class="container mx-auto px-4 text-center">
         <div class="flex items-center justify-center space-x-2 mb-4">
-            <span class="text-2xl font-bold" style="font-family: 'Lora', serif;">Cours d'Arabe</span>
-          </div>
-        <p class="text-gray-200 mb-6">Votre partenaire pour l'apprentissage de l'arabe.</p>
-        <div class="flex justify-center space-x-6 mb-6">
+          <span class="text-2xl font-bold" style="font-family: 'Lora', serif;" id="footerTitle">Cours d'Arabe</span>
+        </div>
+        <p class="text-gray-200 mb-6" id="footerDescription">Votre partenaire pour l'apprentissage de l'arabe.</p>
+        <div class="flex justify-center space-x-6 mb-6" id="footerNav">
           <a href="#home" class="hover:text-var(--secondary)">Accueil</a>
           <a href="#services" class="hover:text-var(--secondary)">Services</a>
           <a href="#packages" class="hover:text-var(--secondary)">Forfaits</a>
           <a href="#book-now" class="hover:text-var(--secondary)">Inscription</a>
-        
+        </div>
+      </div>
     </footer>
   </div>
 
+  <!-- Sync Indicator -->
+  <div class="sync-indicator" id="syncIndicator">
+    <span id="syncStatus">Synchronisation...</span>
+  </div>
+
+  <!-- Password Modal -->
+  <div class="modal-overlay" id="passwordModal">
+    <div class="modal-content password-modal">
+      <h2>Accès Administration</h2>
+      <input type="password" id="passwordInput" placeholder="Mot de passe" />
+      <button onclick="checkPassword()">Connexion</button>
+      <button onclick="closePasswordModal()" style="background: #666; margin-top: 10px;">Annuler</button>
+    </div>
+  </div>
+
+  <!-- Admin Panel Modal -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-content admin-panel">
+      <div class="admin-header">
+        <h2>Panel d'Administration</h2>
+        <button class="close-admin" onclick="closeAdminPanel()">Fermer</button>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="switchTab('content')">Contenu</button>
+        <button class="admin-tab" onclick="switchTab('packages')">Forfaits</button>
+        <button class="admin-tab" onclick="switchTab('colors')">Couleurs</button>
+        <button class="admin-tab" onclick="switchTab('fonts')">Polices</button>
+        <button class="admin-tab" onclick="switchTab('firebase')">Firebase</button>
+      </div>
+
+      <!-- Content Tab -->
+      <div class="tab-content active" id="content-tab">
+        <h3>Configuration du Contenu</h3>
+        
+        <div class="form-group">
+          <label>Titre Logo</label>
+          <input type="text" id="logoTextInput" placeholder="Cours d'Arabe" />
+        </div>
+        
+        <div class="form-group">
+          <label>Titre Hero</label>
+          <input type="text" id="heroTitleInput" placeholder="Apprenez l'Arabe Authentique" />
+        </div>
+        
+        <div class="form-group">
+          <label>Sous-titre Hero</label>
+          <input type="text" id="heroSubtitleInput" placeholder="Cours immersifs..." />
+        </div>
+        
+        <div class="form-group">
+          <label>Image Hero URL</label>
+          <input type="text" id="heroImageInput" placeholder="/arab.jpeg" />
+        </div>
+        
+        <div class="form-group">
+          <label>Titre Section Services</label>
+          <input type="text" id="servicesTitleInput" placeholder="Nos Forces" />
+        </div>
+        
+        <div class="form-group">
+          <label>Description Services</label>
+          <textarea id="servicesDescInput" placeholder="Une méthode éprouvée..."></textarea>
+        </div>
+        
+        <button class="btn-primary" onclick="saveContent()">Sauvegarder Contenu</button>
+        <button class="btn-danger" onclick="resetContent()">Réinitialiser</button>
+      </div>
+
+      <!-- Packages Tab -->
+      <div class="tab-content" id="packages-tab">
+        <h3>Gestion des Forfaits</h3>
+        
+        <div class="form-group">
+          <label>Titre du forfait</label>
+          <input type="text" id="packageTitle" placeholder="Ex: Mensuel Solo" />
+        </div>
+        
+        <div class="form-group">
+          <label>Type</label>
+          <select id="packageType">
+            <option value="mensuel">Mensuel</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Prix (€)</label>
+          <input type="number" id="packagePrice" placeholder="180" />
+        </div>
+        
+        <div class="form-group">
+          <label>Format</label>
+          <select id="packageFormat">
+            <option value="solo">Solo</option>
+            <option value="groupe">Groupe</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Image (URL ou nom de fichier local)</label>
+          <input type="text" id="packageImage" placeholder="cour.jpg ou https://exemple.com/image.jpg" onchange="validateImage(this.value)" />
+          <small style="color: #888; font-size: 12px;">
+            • Fichier local : cour.jpg, cour2.jpg, etc.<br>
+            • URL internet : https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d<br>
+            • Localhost : http://localhost:3000/image.jpg<br>
+            • Exemples : https://picsum.photos/400/300, https://via.placeholder.com/400x300
+          </small>
+          <div id="imagePreview" style="margin-top: 10px; display: none;">
+            <img id="previewImg" style="max-width: 200px; max-height: 150px; border-radius: 5px; border: 1px solid #ddd;" />
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Caractéristiques (une par ligne)</label>
+          <textarea id="packageFeatures" rows="5" placeholder="8h de cours/mois&#10;Tomes 1-4 (niveau choisi)&#10;Cours pour 2 personnes"></textarea>
+        </div>
+        
+        <button class="btn-primary" onclick="addPackage()">Ajouter Forfait</button>
+        
+        <div class="list-item" style="margin-top: 30px;">
+          <h4>Forfaits actuels</h4>
+          <div id="packagesList"></div>
+        </div>
+      </div>
+
+      <!-- Colors Tab -->
+      <div class="tab-content" id="colors-tab">
+        <h3>Configuration des Couleurs</h3>
+        
+        <div class="form-group">
+          <label>Couleur Primaire</label>
+          <input type="color" id="primaryColor" value="#4A7043" />
+          <span id="primaryColorValue">#4A7043</span>
+        </div>
+        
+        <div class="form-group">
+          <label>Couleur Secondaire</label>
+          <input type="color" id="secondaryColor" value="#F4A261" />
+          <span id="secondaryColorValue">#F4A261</span>
+        </div>
+        
+        <div class="form-group">
+          <label>Couleur de Fond</label>
+          <input type="color" id="backgroundColorInput" value="#F8F1E9" />
+          <span id="backgroundColorValue">#F8F1E9</span>
+        </div>
+        
+        <div class="form-group">
+          <label>Couleur du Texte</label>
+          <input type="color" id="textColorInput" value="#2D3142" />
+          <span id="textColorValue">#2D3142</span>
+        </div>
+        
+        <button class="btn-primary" onclick="saveColors()">Appliquer Couleurs</button>
+        <button class="btn-danger" onclick="resetColors()">Couleurs Par Défaut</button>
+      </div>
+
+      <!-- Fonts Tab -->
+      <div class="tab-content" id="fonts-tab">
+        <h3>Configuration des Polices</h3>
+        
+        <div class="form-group">
+          <label>Police Principale (Corps de texte)</label>
+          <select id="bodyFont">
+            <option value="Roboto">Roboto (Moderne)</option>
+            <option value="Arial">Arial (Classique)</option>
+            <option value="Georgia">Georgia (Élégant)</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Orbitron">Orbitron (Futuriste)</option>
+            <option value="Cinzel">Cinzel (Renaissance)</option>
+            <option value="Almendra">Almendra (Médiéval)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Police Titres (H1, H2, H3)</label>
+          <select id="headingFont">
+            <option value="Lora">Lora (Élégant)</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Cinzel">Cinzel (Renaissance)</option>
+            <option value="UnifrakturMaguntia">UnifrakturMaguntia (Gothique)</option>
+            <option value="Orbitron">Orbitron (Cyberpunk)</option>
+            <option value="Pirata One">Pirata One</option>
+            <option value="Monoton">Monoton (Néon)</option>
+            <option value="Almendra">Almendra (Médiéval)</option>
+          </select>
+        </div>
+        
+        <button class="btn-primary" onclick="saveFonts()">Appliquer Polices</button>
+        <button class="btn-danger" onclick="resetFonts()">Polices Par Défaut</button>
+      </div>
+
+      <!-- Firebase Tab -->
+      <div class="tab-content" id="firebase-tab">
+        <h3>Configuration Firebase</h3>
+        <div class="form-group">
+          <label>API Key</label>
+          <input type="text" id="firebaseApiKey" placeholder="AIzaSy..." />
+        </div>
+        <div class="form-group">
+          <label>Auth Domain</label>
+          <input type="text" id="firebaseAuthDomain" placeholder="your-app.firebaseapp.com" />
+        </div>
+        <div class="form-group">
+          <label>Project ID</label>
+          <input type="text" id="firebaseProjectId" placeholder="your-project-id" />
+        </div>
+        <div class="form-group">
+          <label>Storage Bucket</label>
+          <input type="text" id="firebaseStorageBucket" placeholder="your-app.appspot.com" />
+        </div>
+        <div class="form-group">
+          <label>Messaging Sender ID</label>
+          <input type="text" id="firebaseMessagingSenderId" placeholder="123456789" />
+        </div>
+        <div class="form-group">
+          <label>App ID</label>
+          <input type="text" id="firebaseAppId" placeholder="1:123456789:web:abc123" />
+        </div>
+        <button class="btn-primary" onclick="saveFirebaseConfig()">Sauvegarder et Connecter</button>
+        <button class="btn-danger" onclick="disconnectFirebase()">Déconnecter</button>
+        <div class="firebase-status disconnected" id="firebaseStatus">
+          Non connecté - Données stockées localement
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <script>
-    // Scroll Animations
-    function revealOnScroll() {
-      const elements = document.querySelectorAll('.animate-slide-in, .animate-fade-in');
-      elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.8 && rect.bottom >= 0) {
-          el.style.opacity = '1';
+    // Firebase instance
+    let firebaseApp = null;
+    let db = null;
+    let isFirebaseConnected = false;
+
+    // Default configuration
+    const defaultConfig = {
+      content: {
+        logoText: 'Cours d\'Arabe',
+        heroTitle: 'Apprenez l\'Arabe Authentique',
+        heroSubtitle: 'Cours immersifs basés sur les Tomes 1 à 4 de Médine',
+        heroImage: '/arab.jpeg',
+        servicesTitle: 'Nos Forces',
+        servicesDescription: 'Une méthode éprouvée pour un apprentissage rapide'
+      },
+      colors: {
+        primary: '#4A7043',
+        secondary: '#F4A261',
+        background: '#F8F1E9',
+        text: '#2D3142'
+      },
+      fonts: {
+        body: 'Roboto',
+        heading: 'Lora'
+      },
+      services: [
+        {
+          icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"></path><path d="M12 8v8M8 12h8"></path></svg>',
+          title: "Méthode Médine",
+          description: "Cours structurés autour des livres de Médine pour tous niveaux."
+        },
+        {
+          icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>',
+          title: "Professeurs Qualifiés",
+          description: "Enseignants natifs maîtrisant la pédagogie Médine."
+        },
+        {
+          icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+          title: "Flexibilité Totale",
+          description: "Cours en ligne ou en présentiel, adaptés à votre emploi du temps."
+        },
+        {
+          icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+          title: "Petits Groupes",
+          description: "Cours en solo ou groupes restreints pour une attention personnalisée."
         }
+      ],
+      packages: [
+        {
+          id: 'monthly-solo',
+          title: 'Mensuel Solo',
+          type: 'mensuel',
+          price: 180,
+          features: [
+            '8h de cours/mois',
+            'Tomes 1-4 (niveau choisi)',
+            'Cours individuel',
+            'Ressources numériques incluses'
+          ],
+          image: 'cour.jpg',
+          format: 'solo'
+        },
+        {
+          id: 'monthly-group',
+          title: 'Mensuel Groupe',
+          type: 'mensuel',
+          price: 120,
+          features: [
+            '8h de cours/mois',
+            'Tomes 1-4 (niveau choisi)',
+            'Cours pour 4+ personnes',
+            'Ressources numériques incluses'
+          ],
+          image: 'cour2.jpg',
+          format: 'groupe'
+        }
+      ],
+      firebase: {}
+    };
+
+    let siteConfig = JSON.parse(JSON.stringify(defaultConfig));
+
+    // Firebase functions
+    function initFirebase() {
+      const config = siteConfig.firebase;
+      if (config.apiKey && config.projectId) {
+        try {
+          firebaseApp = firebase.initializeApp(config);
+          db = firebase.firestore();
+          isFirebaseConnected = true;
+          updateFirebaseStatus('connected');
+          loadFromFirebase();
+          return true;
+        } catch (error) {
+          console.error('Firebase initialization error:', error);
+          updateFirebaseStatus('disconnected');
+          return false;
+        }
+      }
+      return false;
+    }
+
+    async function loadFromFirebase() {
+      if (!db) return;
+      
+      showSyncIndicator('Chargement depuis Firebase...');
+      
+      try {
+        const doc = await db.collection('arabeCourseConfig').doc('main').get();
+        if (doc.exists) {
+          const data = doc.data();
+          Object.assign(siteConfig, data);
+          applyConfig();
+          showSyncIndicator('Données synchronisées', 'success');
+        } else {
+          await saveToFirebase();
+        }
+      } catch (error) {
+        console.error('Error loading from Firebase:', error);
+        showSyncIndicator('Erreur de synchronisation', 'error');
+      }
+    }
+
+    async function saveToFirebase() {
+      if (!db) {
+        saveToLocalStorage();
+        return;
+      }
+      
+      showSyncIndicator('Sauvegarde sur Firebase...');
+      
+      try {
+        await db.collection('arabeCourseConfig').doc('main').set(siteConfig);
+        showSyncIndicator('Sauvegardé sur Firebase', 'success');
+      } catch (error) {
+        console.error('Error saving to Firebase:', error);
+        showSyncIndicator('Erreur de sauvegarde', 'error');
+        saveToLocalStorage();
+      }
+    }
+
+    function saveToLocalStorage() {
+      localStorage.setItem('arabeCourseConfig', JSON.stringify(siteConfig));
+    }
+
+    function loadConfig() {
+      const saved = localStorage.getItem('arabeCourseConfig');
+      if (saved) {
+        Object.assign(siteConfig, JSON.parse(saved));
+      }
+      
+      if (siteConfig.firebase && siteConfig.firebase.apiKey) {
+        initFirebase();
+      }
+    }
+
+    function saveConfig() {
+      if (isFirebaseConnected) {
+        saveToFirebase();
+      } else {
+        saveToLocalStorage();
+      }
+    }
+
+    function showSyncIndicator(message, type = 'syncing') {
+      const indicator = document.getElementById('syncIndicator');
+      const status = document.getElementById('syncStatus');
+      
+      status.textContent = message;
+      indicator.className = 'sync-indicator show';
+      
+      if (type === 'success') {
+        indicator.style.background = 'rgba(0, 255, 0, 0.2)';
+        indicator.style.color = '#00ff00';
+      } else if (type === 'error') {
+        indicator.style.background = 'rgba(255, 0, 0, 0.2)';
+        indicator.style.color = '#ff4444';
+      } else {
+        indicator.style.background = 'rgba(255, 255, 0, 0.2)';
+        indicator.style.color = '#ffff00';
+      }
+      
+      setTimeout(() => {
+        indicator.classList.remove('show');
+      }, 3000);
+    }
+
+    function updateFirebaseStatus(status) {
+      const statusEl = document.getElementById('firebaseStatus');
+      if (status === 'connected') {
+        statusEl.textContent = 'Connecté à Firebase';
+        statusEl.className = 'firebase-status connected';
+      } else if (status === 'syncing') {
+        statusEl.textContent = 'Synchronisation...';
+        statusEl.className = 'firebase-status syncing';
+      } else {
+        statusEl.textContent = 'Non connecté - Données stockées localement';
+        statusEl.className = 'firebase-status disconnected';
+      }
+    }
+
+    // Apply configuration
+    function applyConfig() {
+      // Apply content
+      document.getElementById('logoText').textContent = siteConfig.content.logoText;
+      document.getElementById('heroTitle').textContent = siteConfig.content.heroTitle;
+      document.getElementById('heroSubtitle').textContent = siteConfig.content.heroSubtitle;
+      document.getElementById('heroImage').style.backgroundImage = `url('${siteConfig.content.heroImage}')`;
+      document.getElementById('servicesTitle').textContent = siteConfig.content.servicesTitle;
+      document.getElementById('servicesDescription').textContent = siteConfig.content.servicesDescription;
+      document.getElementById('footerTitle').textContent = siteConfig.content.logoText;
+
+      // Apply colors
+      const root = document.documentElement;
+      root.style.setProperty('--primary', siteConfig.colors.primary);
+      root.style.setProperty('--secondary', siteConfig.colors.secondary);
+      root.style.setProperty('--background', siteConfig.colors.background);
+      root.style.setProperty('--text', siteConfig.colors.text);
+
+      // Apply fonts
+      document.body.style.fontFamily = `'${siteConfig.fonts.body}', sans-serif`;
+      document.querySelectorAll('h1, h2, h3').forEach(el => {
+        el.style.fontFamily = `'${siteConfig.fonts.heading}', serif`;
+      });
+
+      // Render services
+      renderServices();
+      
+      // Render packages
+      renderPackages();
+    }
+
+    function renderServices() {
+      const servicesGrid = document.getElementById('servicesGrid');
+      servicesGrid.innerHTML = '';
+      
+      siteConfig.services.forEach((service, index) => {
+        const serviceCard = document.createElement('div');
+        serviceCard.className = 'flex justify-center animate-fade-in';
+        serviceCard.style.animationDelay = `${index * 0.2}s`;
+        serviceCard.innerHTML = `
+          <div class="relative w-64 h-64 bg-white shadow-lg rounded-lg flex flex-col items-center justify-center text-center p-6 border-2 border-var(--primary) transition-all duration-300 hover:border-var(--secondary)">
+            <div class="text-var(--primary) mb-4">${service.icon}</div>
+            <h3 class="text-lg font-bold text-var(--text) mb-2">${service.title}</h3>
+            <p class="text-sm text-gray-600">${service.description}</p>
+          </div>
+        `;
+        servicesGrid.appendChild(serviceCard);
       });
     }
 
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-
-    // Navbar Animation
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('shadow-lg');
-      } else {
-        header.classList.remove('shadow-lg');
+    // Image handling function
+    function getImageUrl(imagePath) {
+      // Si c'est déjà une URL complète (http/https), on la retourne telle quelle
+      if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+        return imagePath;
       }
-    });
+      
+      // Si c'est un fichier local, on le retourne tel quel (sera résolu par le serveur)
+      return imagePath;
+    }
 
-    // Mobile Menu Toggle
-    const menuButton = document.getElementById('menuButton');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('animate-fade-in');
-    });
-
-    // Services Data
-    const services = [
-      {
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"></path><path d="M12 8v8M8 12h8"></path></svg>',
-        title: "Méthode Médine",
-        description: "Cours structurés autour des livres de Médine pour tous niveaux."
-      },
-      {
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>',
-        title: "Professeurs Qualifiés",
-        description: "Enseignants natifs maîtrisant la pédagogie Médine."
-      },
-      {
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
-        title: "Flexibilité Totale",
-        description: "Cours en ligne ou en présentiel, adaptés à votre emploi du temps."
-      },
-      {
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
-        title: "Petits Groupes",
-        description: "Cours en duo ou groupes restreints pour une attention personnalisée."
+    // Image validation and preview function
+    function validateImage(imagePath) {
+      const previewDiv = document.getElementById('imagePreview');
+      const previewImg = document.getElementById('previewImg');
+      
+      if (!imagePath || imagePath.trim() === '') {
+        previewDiv.style.display = 'none';
+        return;
       }
-    ];
+      
+      const imageUrl = getImageUrl(imagePath);
+      previewImg.src = imageUrl;
+      previewDiv.style.display = 'block';
+      
+      // Test if image loads
+      previewImg.onload = function() {
+        previewImg.style.border = '1px solid #4CAF50';
+        previewImg.title = 'Image chargée avec succès';
+      };
+      
+      previewImg.onerror = function() {
+        previewImg.style.border = '1px solid #f44336';
+        previewImg.title = 'Erreur de chargement de l\'image';
+        previewImg.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY0NDM2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkVycmV1ciBkZSBjaGFyZ2VtZW50PC90ZXh0Pjwvc3ZnPg==';
+      };
+    }
 
-    // Render Services
-    const servicesGrid = document.getElementById('servicesGrid');
-    services.forEach((service, index) => {
-      const serviceCard = document.createElement('div');
-      serviceCard.className = 'flex justify-center animate-fade-in';
-      serviceCard.style.animationDelay = `${index * 0.2}s`;
-      serviceCard.innerHTML = `
-        <div class="relative w-64 h-64 bg-white shadow-lg rounded-lg flex flex-col items-center justify-center text-center p-6 border-2 border-var(--primary) transition-all duration-300 hover:border-var(--secondary)">
-          <div class="text-var(--primary) mb-4">${service.icon}</div>
-          <h3 class="text-lg font-bold text-var(--text) mb-2">${service.title}</h3>
-          <p class="text-sm text-gray-600">${service.description}</p>
-        </div>
-      `;
-      servicesGrid.appendChild(serviceCard);
-    });
-
-    // Packages Data
-    const packages = [
-      {
-        id: 'monthly-duo',
-        title: 'Mensuel Duo',
-        type: 'mensuel',
-        price: 180,
-        features: [
-          '8h de cours/mois',
-          'Tomes 1-4 (niveau choisi)',
-          'Cours pour 2 personnes',
-          'Ressources numériques incluses'
-        ],
-        image: 'cour.jpg',
-        format: 'duo'
-      },
-      {
-        id: 'monthly-group',
-        title: 'Mensuel Groupe',
-        type: 'mensuel',
-        price: 120,
-        features: [
-          '8h de cours/mois',
-          'Tomes 1-4 (niveau choisi)',
-          'Cours pour 4+ personnes',
-          'Ressources numériques incluses'
-        ],
-        image: 'cour2.jpg',
-        format: 'groupe'
-      },
-      {
-        id: 'weekly-duo',
-        title: 'Hebdo Duo',
-        type: 'hebdomadaire',
-        price: 50,
-        features: [
-          '2h de cours/semaine',
-          'Tomes 1-4 (niveau choisi)',
-          'Cours pour 2 personnes',
-          'Support par email'
-        ],
-        image: 'cour3.jpg',
-        format: 'duo'
-      },
-      {
-        id: 'weekly-group',
-        title: 'Hebdo Groupe',
-        type: 'hebdomadaire',
-        price: 35,
-        features: [
-          '2h de cours/semaine',
-          'Tomes 1-4 (niveau choisi)',
-          'Cours pour 4+ personnes',
-          'Support par email'
-        ],
-        image: 'cour4.png',
-        format: 'groupe'
-      },
-      {
-        id: 'yearly-duo',
-        title: 'Annuel Duo',
-        type: 'annuel',
-        price: 1800,
-        features: [
-          '96h de cours/an',
-          'Tomes 1-4 (niveau choisi)',
-          'Cours pour 2 personnes',
-          'Support prioritaire'
-        ],
-        image: 'cour5.png',
-        format: 'duo'
-      },
-      {
-        id: 'yearly-group',
-        title: 'Annuel Groupe',
-        type: 'annuel',
-        price: 1200,
-        features: [
-          '96h de cours/an',
-          'Tomes 1-4 (niveau choisi)',
-          'Cours pour 4+ personnes',
-          'Support prioritaire'
-        ],
-        image: 'cour6.png',
-        format: 'groupe'
-      },
-      {
-        id: 'hourly-duo',
-        title: 'Horaire Duo',
-        type: 'horaire',
-        price: 25,
-        features: [
-          'Cours à l\'heure',
-          'Tomes 1-4 (niveau choisi)',
-          'Cours pour 2 personnes',
-          'Flexibilité maximale'
-        ],
-        image: 'cour7.png',
-        format: 'duo'
-      },
-      {
-        id: 'hourly-group',
-        title: 'Horaire Groupe',
-        type: 'horaire',
-        price: 15,
-        features: [
-          'Cours à l\'heure',
-          'Tomes 1-4 (niveau choisi)',
-          'Cours pour 4+ personnes',
-          'Flexibilité maximale'
-        ],
-        image: 'cour8.png',
-        format: 'groupe'
-      }
-    ];
-
-    // Render Package Tabs
-    const packageTypes = ['mensuel', 'hebdomadaire', 'annuel', 'horaire'];
-    const packageTabs = document.getElementById('packageTabs');
+    // Package rendering
     let activeTab = 'mensuel';
 
-    packageTypes.forEach((type, index) => {
-      const tab = document.createElement('button');
-      tab.className = `px-6 py-3 m-2 rounded-lg bg-white text-var(--text) font-medium shadow-md hover:bg-var(--primary) hover:text-white transition-all duration-300 animate-fade-in`;
-      tab.style.animationDelay = `${index * 0.1}s`;
-      tab.textContent = type.charAt(0).toUpperCase() + type.slice(1);
-      tab.addEventListener('click', () => {
-        activeTab = type;
-        renderPackages();
-        packageTabs.querySelectorAll('button').forEach(btn => {
-          btn.className = `px-6 py-3 m-2 rounded-lg font-medium shadow-md transition-all duration-300 ${
-            btn.textContent.toLowerCase() === activeTab ? 'bg-var(--primary) text-white' : 'bg-white text-var(--text) hover:bg-var(--primary) hover:text-white'
-          }`;
-        });
-      });
-      packageTabs.appendChild(tab);
-    });
-
-    // Render Packages
     function renderPackages() {
+      const packageTypes = ['mensuel'];
+      const packageTabs = document.getElementById('packageTabs');
+      packageTabs.innerHTML = '';
+
+      packageTypes.forEach((type, index) => {
+        const tab = document.createElement('button');
+        tab.className = `px-6 py-3 m-2 rounded-lg font-medium shadow-md transition-all duration-300 animate-fade-in ${
+          type === activeTab ? 'bg-var(--primary) text-white' : 'bg-white text-var(--text) hover:bg-var(--primary) hover:text-white'
+        }`;
+        tab.style.animationDelay = `${index * 0.1}s`;
+        tab.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+        tab.addEventListener('click', () => {
+          activeTab = type;
+          renderPackageGrid();
+          renderPackageTabs();
+        });
+        packageTabs.appendChild(tab);
+      });
+
+      renderPackageGrid();
+    }
+
+    function renderPackageTabs() {
+      const packageTabs = document.getElementById('packageTabs');
+      packageTabs.querySelectorAll('button').forEach(btn => {
+        const isActive = btn.textContent.toLowerCase() === activeTab;
+        btn.className = `px-6 py-3 m-2 rounded-lg font-medium shadow-md transition-all duration-300 ${
+          isActive ? 'bg-var(--primary) text-white' : 'bg-white text-var(--text) hover:bg-var(--primary) hover:text-white'
+        }`;
+      });
+    }
+
+    function renderPackageGrid() {
       const packagesGrid = document.getElementById('packagesGrid');
       packagesGrid.innerHTML = '';
      
-      const filteredPackages = packages.filter(pkg => pkg.type === activeTab);
+      const filteredPackages = siteConfig.packages.filter(pkg => pkg.type === activeTab);
      
       filteredPackages.forEach((pkg, index) => {
         const packageCard = document.createElement('div');
@@ -572,7 +1206,7 @@
           <div class="absolute w-full h-full transition-transform duration-700 preserve-3d">
             <div class="absolute w-full h-full backface-hidden bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center">
               <div class="relative w-full h-40 mb-4 overflow-hidden" style="clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%)">
-                <img src="${pkg.image}" alt="${pkg.title}" class="w-full h-full object-cover">
+                <img src="${getImageUrl(pkg.image)}" alt="${pkg.title}" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vbiB0cm91dsOpZTwvdGV4dD48L3N2Zz4='">
               </div>
               <h3 class="text-xl font-bold text-var(--text) mb-2">${pkg.title}</h3>
               <p class="text-2xl font-bold text-var(--primary)">€${pkg.price} <span class="text-sm font-normal text-gray-600">${pkg.type === 'horaire' ? '/heure' : pkg.type === 'annuel' ? '/an' : pkg.type === 'mensuel' ? '/mois' : '/semaine'}</span></p>
@@ -598,32 +1232,355 @@
       });
     }
 
-    // Initial render of packages
-    renderPackages();
+    // Admin access with triple click
+    let clickCount = 0;
+    let clickTimer;
+
+    document.addEventListener('DOMContentLoaded', function() {
+      loadConfig();
+      applyConfig();
+      
+      const logoText = document.getElementById('logoText');
+      logoText.addEventListener('click', function(e) {
+        e.preventDefault();
+        clickCount++;
+        
+        if (clickCount === 1) {
+          clickTimer = setTimeout(() => {
+            clickCount = 0;
+          }, 500);
+        }
+        
+        if (clickCount === 3) {
+          clearTimeout(clickTimer);
+          clickCount = 0;
+          openPasswordModal();
+        }
+      });
+    });
+
+    // Modal functions
+    function openPasswordModal() {
+      document.getElementById('passwordModal').classList.add('show');
+      document.getElementById('passwordInput').focus();
+    }
+
+    function closePasswordModal() {
+      document.getElementById('passwordModal').classList.remove('show');
+      document.getElementById('passwordInput').value = '';
+    }
+
+    function checkPassword() {
+      const password = document.getElementById('passwordInput').value;
+      if (password === 'oumar123') {
+        closePasswordModal();
+        openAdminPanel();
+      } else {
+        alert('Mot de passe incorrect');
+        document.getElementById('passwordInput').value = '';
+      }
+    }
+
+    function openAdminPanel() {
+      document.getElementById('adminModal').classList.add('show');
+      loadAdminValues();
+      updatePackagesList();
+      loadFirebaseConfig();
+    }
+
+    function closeAdminPanel() {
+      document.getElementById('adminModal').classList.remove('show');
+    }
+
+    // Tab switching
+    function switchTab(tabName) {
+      document.querySelectorAll('.admin-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      event.target.classList.add('active');
+      document.getElementById(tabName + '-tab').classList.add('active');
+    }
+
+    // Load admin values
+    function loadAdminValues() {
+      // Content
+      document.getElementById('logoTextInput').value = siteConfig.content.logoText;
+      document.getElementById('heroTitleInput').value = siteConfig.content.heroTitle;
+      document.getElementById('heroSubtitleInput').value = siteConfig.content.heroSubtitle;
+      document.getElementById('heroImageInput').value = siteConfig.content.heroImage;
+      document.getElementById('servicesTitleInput').value = siteConfig.content.servicesTitle;
+      document.getElementById('servicesDescInput').value = siteConfig.content.servicesDescription;
+      
+      // Colors
+      document.getElementById('primaryColor').value = siteConfig.colors.primary;
+      document.getElementById('primaryColorValue').textContent = siteConfig.colors.primary;
+      document.getElementById('secondaryColor').value = siteConfig.colors.secondary;
+      document.getElementById('secondaryColorValue').textContent = siteConfig.colors.secondary;
+      document.getElementById('backgroundColorInput').value = siteConfig.colors.background;
+      document.getElementById('backgroundColorValue').textContent = siteConfig.colors.background;
+      document.getElementById('textColorInput').value = siteConfig.colors.text;
+      document.getElementById('textColorValue').textContent = siteConfig.colors.text;
+      
+      // Fonts
+      document.getElementById('bodyFont').value = siteConfig.fonts.body;
+      document.getElementById('headingFont').value = siteConfig.fonts.heading;
+    }
+
+    // Content functions
+    function saveContent() {
+      siteConfig.content = {
+        logoText: document.getElementById('logoTextInput').value,
+        heroTitle: document.getElementById('heroTitleInput').value,
+        heroSubtitle: document.getElementById('heroSubtitleInput').value,
+        heroImage: document.getElementById('heroImageInput').value,
+        servicesTitle: document.getElementById('servicesTitleInput').value,
+        servicesDescription: document.getElementById('servicesDescInput').value
+      };
+      saveConfig();
+      applyConfig();
+      alert('Contenu sauvegardé !');
+    }
+
+    function resetContent() {
+      siteConfig.content = JSON.parse(JSON.stringify(defaultConfig.content));
+      saveConfig();
+      applyConfig();
+      loadAdminValues();
+      alert('Contenu réinitialisé !');
+    }
+
+    // Package functions
+    function addPackage() {
+      const title = document.getElementById('packageTitle').value;
+      const type = document.getElementById('packageType').value;
+      const price = parseFloat(document.getElementById('packagePrice').value);
+      const format = document.getElementById('packageFormat').value;
+      const image = document.getElementById('packageImage').value;
+      const features = document.getElementById('packageFeatures').value.split('\n').filter(f => f.trim());
+      
+      if (title && price && features.length > 0) {
+        const id = 'package_' + Date.now();
+        siteConfig.packages.push({
+          id,
+          title,
+          type,
+          price,
+          format,
+          image,
+          features
+        });
+        saveConfig();
+        applyConfig();
+        updatePackagesList();
+        
+        // Clear form
+        document.getElementById('packageTitle').value = '';
+        document.getElementById('packagePrice').value = '';
+        document.getElementById('packageImage').value = '';
+        document.getElementById('packageFeatures').value = '';
+        
+        alert('Forfait ajouté !');
+      }
+    }
+
+    function updatePackagesList() {
+      const list = document.getElementById('packagesList');
+      list.innerHTML = '';
+      
+      siteConfig.packages.forEach((pkg, index) => {
+        const item = document.createElement('div');
+        item.className = 'list-item';
+        item.innerHTML = `
+          <div class="list-item-view">
+            <div class="list-item-info">
+              <strong>${pkg.title}</strong> - €${pkg.price} (${pkg.type})<br>
+              <small>Format: ${pkg.format} | Image: ${pkg.image}</small><br>
+              <small>${pkg.features.join(', ')}</small>
+            </div>
+            <div class="list-item-actions">
+              <button class="btn-edit" onclick="editPackage(${index})">Modifier</button>
+              <button class="btn-danger" onclick="deletePackage(${index})">Supprimer</button>
+            </div>
+          </div>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function editPackage(index) {
+      const pkg = siteConfig.packages[index];
+      document.getElementById('packageTitle').value = pkg.title;
+      document.getElementById('packageType').value = pkg.type;
+      document.getElementById('packagePrice').value = pkg.price;
+      document.getElementById('packageFormat').value = pkg.format;
+      document.getElementById('packageImage').value = pkg.image;
+      document.getElementById('packageFeatures').value = pkg.features.join('\n');
+      
+      // Remove the package to allow re-adding with modifications
+      siteConfig.packages.splice(index, 1);
+      saveConfig();
+      applyConfig();
+      updatePackagesList();
+    }
+
+    function deletePackage(index) {
+      if (confirm('Supprimer ce forfait ?')) {
+        siteConfig.packages.splice(index, 1);
+        saveConfig();
+        applyConfig();
+        updatePackagesList();
+      }
+    }
+
+    // Color functions
+    function saveColors() {
+      siteConfig.colors = {
+        primary: document.getElementById('primaryColor').value,
+        secondary: document.getElementById('secondaryColor').value,
+        background: document.getElementById('backgroundColorInput').value,
+        text: document.getElementById('textColorInput').value
+      };
+      saveConfig();
+      applyConfig();
+      alert('Couleurs appliquées !');
+    }
+
+    function resetColors() {
+      siteConfig.colors = JSON.parse(JSON.stringify(defaultConfig.colors));
+      saveConfig();
+      applyConfig();
+      loadAdminValues();
+      alert('Couleurs réinitialisées !');
+    }
+
+    // Font functions
+    function saveFonts() {
+      siteConfig.fonts = {
+        body: document.getElementById('bodyFont').value,
+        heading: document.getElementById('headingFont').value
+      };
+      saveConfig();
+      applyConfig();
+      alert('Polices appliquées !');
+    }
+
+    function resetFonts() {
+      siteConfig.fonts = JSON.parse(JSON.stringify(defaultConfig.fonts));
+      saveConfig();
+      applyConfig();
+      loadAdminValues();
+      alert('Polices réinitialisées !');
+    }
+
+    // Firebase configuration
+    function loadFirebaseConfig() {
+      if (siteConfig.firebase) {
+        document.getElementById('firebaseApiKey').value = siteConfig.firebase.apiKey || '';
+        document.getElementById('firebaseAuthDomain').value = siteConfig.firebase.authDomain || '';
+        document.getElementById('firebaseProjectId').value = siteConfig.firebase.projectId || '';
+        document.getElementById('firebaseStorageBucket').value = siteConfig.firebase.storageBucket || '';
+        document.getElementById('firebaseMessagingSenderId').value = siteConfig.firebase.messagingSenderId || '';
+        document.getElementById('firebaseAppId').value = siteConfig.firebase.appId || '';
+      }
+    }
+
+    function saveFirebaseConfig() {
+      siteConfig.firebase = {
+        apiKey: document.getElementById('firebaseApiKey').value,
+        authDomain: document.getElementById('firebaseAuthDomain').value,
+        projectId: document.getElementById('firebaseProjectId').value,
+        storageBucket: document.getElementById('firebaseStorageBucket').value,
+        messagingSenderId: document.getElementById('firebaseMessagingSenderId').value,
+        appId: document.getElementById('firebaseAppId').value
+      };
+      
+      saveToLocalStorage();
+      
+      if (initFirebase()) {
+        alert('Connecté à Firebase avec succès !');
+        saveToFirebase();
+      } else {
+        alert('Configuration sauvegardée localement. Vérifiez vos identifiants Firebase.');
+      }
+    }
+
+    function disconnectFirebase() {
+      if (firebaseApp) {
+        firebaseApp.delete();
+        firebaseApp = null;
+        db = null;
+        isFirebaseConnected = false;
+        updateFirebaseStatus('disconnected');
+        alert('Déconnecté de Firebase');
+      }
+    }
+
+    // Color preview updates
+    ['primaryColor', 'secondaryColor', 'backgroundColorInput', 'textColorInput'].forEach(id => {
+      document.addEventListener('DOMContentLoaded', () => {
+        const input = document.getElementById(id);
+        const valueSpan = document.getElementById(id.replace('Input', '') + 'Value');
+        if (input && valueSpan) {
+          input.addEventListener('input', (e) => {
+            valueSpan.textContent = e.target.value;
+          });
+        }
+      });
+    });
+
+    // Password input enter key
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          checkPassword();
+        }
+      });
+    });
+
+    // Navbar functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuButton = document.getElementById('menuButton');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Scroll animations
+      function revealOnScroll() {
+        const elements = document.querySelectorAll('.animate-slide-in, .animate-fade-in');
+        elements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.8 && rect.bottom >= 0) {
+            el.style.opacity = '1';
+          }
+        });
+      }
+
+      window.addEventListener('scroll', revealOnScroll);
+      window.addEventListener('load', revealOnScroll);
+
+      // Navbar animation
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('shadow-lg');
+        } else {
+          header.classList.remove('shadow-lg');
+        }
+      });
+    });
 
     // Booking Form
     let currentStep = 1;
     const totalSteps = 3;
-    const bookingSteps = document.getElementById('bookingSteps');
-    const bookingForm = document.getElementById('bookingForm');
-
-    // Render Steps
-    for (let i = 1; i <= totalSteps; i++) {
-      const step = document.createElement('div');
-      step.className = `flex flex-col items-center ${i === currentStep ? 'step-active' : ''} animate-fade-in`;
-      step.style.animationDelay = `${i * 0.1}s`;
-      step.innerHTML = `
-        <div class="step-circle w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 text-gray-500">${i}</div>
-        <span class="text-sm mt-2 text-gray-600">${i === 1 ? 'Cours' : i === 2 ? 'Préférences' : 'Coordonnées'}</span>
-      `;
-      bookingSteps.appendChild(step);
-    }
-
-    // Form Data
     let formData = {
-      packageId: 'monthly-duo',
+      packageId: 'monthly-solo',
       level: 'tome1',
-      guests: 2,
+      guests: 1,
       specialRequests: '',
       firstName: '',
       lastName: '',
@@ -632,8 +1589,30 @@
       startDate: ''
     };
 
-    // Render Form Steps
+    // Initialize booking form
+    document.addEventListener('DOMContentLoaded', function() {
+      renderBookingSteps();
+      renderFormStep();
+    });
+
+    function renderBookingSteps() {
+      const bookingSteps = document.getElementById('bookingSteps');
+      bookingSteps.innerHTML = '';
+      
+      for (let i = 1; i <= totalSteps; i++) {
+        const step = document.createElement('div');
+        step.className = `flex flex-col items-center ${i === currentStep ? 'step-active' : ''} animate-fade-in`;
+        step.style.animationDelay = `${i * 0.1}s`;
+        step.innerHTML = `
+          <div class="step-circle w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 text-gray-500">${i}</div>
+          <span class="text-sm mt-2 text-gray-600">${i === 1 ? 'Cours' : i === 2 ? 'Préférences' : 'Coordonnées'}</span>
+        `;
+        bookingSteps.appendChild(step);
+      }
+    }
+
     function renderFormStep() {
+      const bookingForm = document.getElementById('bookingForm');
       bookingForm.innerHTML = '';
      
       if (currentStep === 1) {
@@ -643,7 +1622,7 @@
             <div class="animate-fade-in" style="animation-delay: 0.1s;">
               <label class="block text-gray-700 font-medium mb-2">Forfait</label>
               <select class="form-input w-full p-3 border border-gray-300 bg-gray-50" onchange="updateFormData('packageId', this.value)">
-                ${packages.map(pkg => `
+                ${siteConfig.packages.map(pkg => `
                   <option value="${pkg.id}" ${formData.packageId === pkg.id ? 'selected' : ''}>${pkg.title} - €${pkg.price} ${pkg.type === 'horaire' ? '/heure' : pkg.type === 'annuel' ? '/an' : pkg.type === 'mensuel' ? '/mois' : '/semaine'}</option>
                 `).join('')}
               </select>
@@ -661,7 +1640,7 @@
               <label class="block text-gray-700 font-medium mb-2">Participants</label>
               <div class="flex border border-gray-300 rounded-2xl overflow-hidden bg-gray-50">
                 <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200" onclick="updateGuests(-1)">-</button>
-                <input type="number" value="${formData.guests}" class="form-input w-full text-center p-2 border-x border-gray-300 focus:outline-none" onchange="updateFormData('guests', this.value)" min="2">
+                <input type="number" value="${formData.guests}" class="form-input w-full text-center p-2 border-x border-gray-300 focus:outline-none" onchange="updateFormData('guests', this.value)" min="1">
                 <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200" onclick="updateGuests(1)">+</button>
               </div>
             </div>
@@ -724,7 +1703,7 @@
      
       const nextButton = document.createElement('button');
       nextButton.type = currentStep === totalSteps ? 'submit' : 'button';
-      nextButton.className = `submit-btn bg-var(--secondary) hover:bg-orange-600 text-white font-semibold py-3 px-12 rounded-2xl animate-pulse ${currentStep === totalSteps ? 'border-2 border-var(--primary)' : ''}`;
+      nextButton.className = `submit-btn bg-var(--secondary) hover:bg-orange-600 text-white font-semibold py-3 px-12 rounded-2xl`;
       nextButton.textContent = currentStep === totalSteps ? 'Envoyer' : 'Suivant';
       nextButton.onclick = currentStep === totalSteps ? submitForm : nextStep;
       buttonsDiv.appendChild(nextButton);
@@ -732,15 +1711,15 @@
       bookingForm.appendChild(buttonsDiv);
     }
 
-    // Form Navigation and Submission
+    // Form functions
     function updateFormData(field, value) {
       formData[field] = value;
-      renderFormStep();
     }
 
     function updateGuests(change) {
-      const newValue = Math.max(2, formData.guests + change);
+      const newValue = Math.max(1, formData.guests + change);
       updateFormData('guests', newValue);
+      renderFormStep();
     }
 
     function nextStep() {
@@ -748,7 +1727,6 @@
         currentStep++;
         updateStepIndicators();
         renderFormStep();
-        scrollToForm();
       }
     }
 
@@ -757,33 +1735,23 @@
         currentStep--;
         updateStepIndicators();
         renderFormStep();
-        scrollToForm();
       }
     }
 
     function updateStepIndicators() {
-      const steps = bookingSteps.children;
-      for (let i = 0; i < steps.length; i++) {
-        const stepCircle = steps[i].querySelector('.step-circle');
-        steps[i].classList.toggle('step-active', i + 1 === currentStep);
-        stepCircle.className = `step-circle w-12 h-12 flex items-center justify-center rounded-full ${i + 1 === currentStep ? 'bg-var(--primary) text-white' : 'bg-gray-200 text-gray-500'}`;
-      }
-    }
-
-    function scrollToForm() {
-      const formSection = document.getElementById('book-now');
-      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function calculateTotalPrice() {
-      const selectedPackage = packages.find(pkg => pkg.id === formData.packageId);
-      if (!selectedPackage) return 0;
-      return selectedPackage.price * (selectedPackage.format === 'groupe' ? formData.guests : 1);
+      const steps = document.querySelectorAll('#bookingSteps > div');
+      steps.forEach((step, index) => {
+        const stepCircle = step.querySelector('.step-circle');
+        step.classList.toggle('step-active', index + 1 === currentStep);
+        stepCircle.className = `step-circle w-12 h-12 flex items-center justify-center rounded-full ${
+          index + 1 === currentStep ? 'bg-var(--primary) text-white' : 'bg-gray-200 text-gray-500'
+        }`;
+      });
     }
 
     function generateSummary() {
-      const selectedPackage = packages.find(pkg => pkg.id === formData.packageId);
-      const totalPrice = calculateTotalPrice();
+      const selectedPackage = siteConfig.packages.find(pkg => pkg.id === formData.packageId);
+      const totalPrice = selectedPackage.price * (selectedPackage.format === 'solo' ? formData.guests : (selectedPackage.format === 'groupe' ? formData.guests : 1));
       const levelMap = {
         tome1: 'Tome 1 - Débutant',
         tome2: 'Tome 2 - Intermédiaire',
@@ -791,23 +1759,33 @@
         tome4: 'Tome 4 - Expert'
       };
      
-      return `INSCRIPTION COURS ARABE\n\nClient: ${formData.firstName} ${formData.lastName}\nTéléphone: ${formData.phone}\nEmail: ${formData.email}\n\nDÉTAIL DE L'INSCRIPTION:\nForfait: ${selectedPackage.title}\nNiveau: ${levelMap[formData.level]}\nPrix unitaire: €${selectedPackage.price} ${selectedPackage.type === 'horaire' ? '/heure' : selectedPackage.type === 'annuel' ? '/an' : selectedPackage.type === 'mensuel' ? '/mois' : '/semaine'}\nParticipants: ${formData.guests}\nPrix total: €${totalPrice}\nDate de début: ${formData.startDate}\nDemandes spéciales: ${formData.specialRequests || 'Aucune'}`;
+      return `📚 INSCRIPTION COURS ARABE
+
+👤 Client: ${formData.firstName} ${formData.lastName}
+📞 Téléphone: ${formData.phone}
+📧 Email: ${formData.email}
+
+📋 DÉTAIL DE L'INSCRIPTION:
+• Forfait: ${selectedPackage.title}
+• Niveau: ${levelMap[formData.level]}
+• Prix unitaire: €${selectedPackage.price} ${selectedPackage.type === 'horaire' ? '/heure' : selectedPackage.type === 'annuel' ? '/an' : selectedPackage.type === 'mensuel' ? '/mois' : '/semaine'}
+• Participants: ${formData.guests}
+• Prix total: €${totalPrice}
+• Date de début: ${formData.startDate}
+• Demandes spéciales: ${formData.specialRequests || 'Aucune'}
+
+Merci de confirmer cette inscription.`;
     }
 
     function submitForm(e) {
       e.preventDefault();
      
       const summary = generateSummary();
-      const vendorPhone = '0644762721';
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-     
-      if (isMobile) {
-        window.location.href = `sms:${vendorPhone}?body=${encodeURIComponent(summary)}`;
-      } else {
-        const subject = encodeURIComponent(`Inscription Cours Arabe - ${formData.firstName} ${formData.lastName}`);
-        const body = encodeURIComponent(summary);
-        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=contact@arabecours.com&su=${subject}&body=${body}`, '_blank');
-      }
+      const whatsappPhone = '0644762721';
+      
+      // WhatsApp link
+      const whatsappUrl = `https://wa.me/${whatsappPhone.replace(/\D/g, '')}?text=${encodeURIComponent(summary)}`;
+      window.open(whatsappUrl, '_blank');
      
       const orderSuccess = document.getElementById('order-success');
       orderSuccess.classList.remove('hidden');
@@ -819,9 +1797,9 @@
 
     function resetForm() {
       formData = {
-        packageId: 'monthly-duo',
+        packageId: 'monthly-solo',
         level: 'tome1',
-        guests: 2,
+        guests: 1,
         specialRequests: '',
         firstName: '',
         lastName: '',
@@ -833,9 +1811,6 @@
       updateStepIndicators();
       renderFormStep();
     }
-
-    // Initial form render
-    renderFormStep();
   </script>
 </body>
 </html>
