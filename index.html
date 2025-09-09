@@ -110,6 +110,16 @@
       50% { transform: scale(1.05); }
     }
 
+    @keyframes slideFromLeft {
+      0% { opacity: 0; transform: translateX(-50px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideFromRight {
+      0% { opacity: 0; transform: translateX(50px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
     .animate-slide-in {
       opacity: 0;
       animation: slideIn 0.8s ease-out forwards;
@@ -122,6 +132,24 @@
 
     .animate-pulse {
       animation: pulse 2s infinite;
+    }
+
+    .reveal {
+      opacity: 0;
+      transition: all 0.8s ease-out;
+    }
+
+    .reveal-left {
+      transform: translateX(-50px);
+    }
+
+    .reveal-right {
+      transform: translateX(50px);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateX(0);
     }
 
     /* 3D Card Flip */
@@ -689,6 +717,7 @@
         <div class="form-group">
           <label>Image Hero URL</label>
           <input type="text" id="heroImageInput" placeholder="/arab.jpeg" />
+          <input type="file" id="heroImageFile" accept="image/png,image/jpeg" />
         </div>
         
         <div class="form-group">
@@ -718,6 +747,9 @@
           <label>Type</label>
           <select id="packageType">
             <option value="mensuel">Mensuel</option>
+            <option value="annuel">Annuel</option>
+            <option value="hebdomadaire">Hebdomadaire</option>
+            <option value="horaire">Horaire</option>
           </select>
         </div>
         
@@ -737,6 +769,7 @@
         <div class="form-group">
           <label>Image (URL ou nom de fichier local)</label>
           <input type="text" id="packageImage" placeholder="cour.jpg ou https://exemple.com/image.jpg" onchange="validateImage(this.value)" />
+          <input type="file" id="packageImageFile" accept="image/png,image/jpeg" />
           <small style="color: #888; font-size: 12px;">
             • Fichier local : cour.jpg, cour2.jpg, etc.<br>
             • URL internet : https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d<br>
@@ -1074,7 +1107,7 @@
       document.getElementById('logoText').textContent = siteConfig.content.logoText;
       document.getElementById('heroTitle').textContent = siteConfig.content.heroTitle;
       document.getElementById('heroSubtitle').textContent = siteConfig.content.heroSubtitle;
-      document.getElementById('heroImage').style.backgroundImage = `url('${siteConfig.content.heroImage}')`;
+      document.getElementById('heroImage').style.backgroundImage = `url('${getImageUrl(siteConfig.content.heroImage)}')`;
       document.getElementById('servicesTitle').textContent = siteConfig.content.servicesTitle;
       document.getElementById('servicesDescription').textContent = siteConfig.content.servicesDescription;
       document.getElementById('footerTitle').textContent = siteConfig.content.logoText;
@@ -1105,8 +1138,7 @@
       
       siteConfig.services.forEach((service, index) => {
         const serviceCard = document.createElement('div');
-        serviceCard.className = 'flex justify-center animate-fade-in';
-        serviceCard.style.animationDelay = `${index * 0.2}s`;
+        serviceCard.className = `flex justify-center reveal reveal-${index % 2 === 0 ? 'left' : 'right'}`;
         serviceCard.innerHTML = `
           <div class="relative w-64 h-64 bg-white shadow-lg rounded-lg flex flex-col items-center justify-center text-center p-6 border-2 border-var(--primary) transition-all duration-300 hover:border-var(--secondary)">
             <div class="text-var(--primary) mb-4">${service.icon}</div>
@@ -1120,12 +1152,9 @@
 
     // Image handling function
     function getImageUrl(imagePath) {
-      // Si c'est déjà une URL complète (http/https), on la retourne telle quelle
-      if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+      if (imagePath.startsWith('http://') || imagePath.startsWith('https://') || imagePath.startsWith('data:')) {
         return imagePath;
       }
-      
-      // Si c'est un fichier local, on le retourne tel quel (sera résolu par le serveur)
       return imagePath;
     }
 
@@ -1160,7 +1189,7 @@
     let activeTab = 'mensuel';
 
     function renderPackages() {
-      const packageTypes = ['mensuel'];
+      const packageTypes = [...new Set(siteConfig.packages.map(pkg => pkg.type))];
       const packageTabs = document.getElementById('packageTabs');
       packageTabs.innerHTML = '';
 
@@ -1255,6 +1284,30 @@
           clearTimeout(clickTimer);
           clickCount = 0;
           openPasswordModal();
+        }
+      });
+
+      // Image file handlers
+      document.getElementById('heroImageFile').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            document.getElementById('heroImageInput').value = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      document.getElementById('packageImageFile').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            document.getElementById('packageImage').value = e.target.result;
+            validateImage(e.target.result);
+          };
+          reader.readAsDataURL(file);
         }
       });
     });
@@ -1382,6 +1435,7 @@
         document.getElementById('packagePrice').value = '';
         document.getElementById('packageImage').value = '';
         document.getElementById('packageFeatures').value = '';
+        document.getElementById('packageImageFile').value = '';
         
         alert('Forfait ajouté !');
       }
@@ -1398,7 +1452,7 @@
           <div class="list-item-view">
             <div class="list-item-info">
               <strong>${pkg.title}</strong> - €${pkg.price} (${pkg.type})<br>
-              <small>Format: ${pkg.format} | Image: ${pkg.image}</small><br>
+              <small>Format: ${pkg.format} | Image: ${pkg.image.substring(0, 50)}${pkg.image.length > 50 ? '...' : ''}</small><br>
               <small>${pkg.features.join(', ')}</small>
             </div>
             <div class="list-item-actions">
@@ -1419,6 +1473,7 @@
       document.getElementById('packageFormat').value = pkg.format;
       document.getElementById('packageImage').value = pkg.image;
       document.getElementById('packageFeatures').value = pkg.features.join('\n');
+      validateImage(pkg.image);
       
       // Remove the package to allow re-adding with modifications
       siteConfig.packages.splice(index, 1);
@@ -1551,11 +1606,11 @@
 
       // Scroll animations
       function revealOnScroll() {
-        const elements = document.querySelectorAll('.animate-slide-in, .animate-fade-in');
-        elements.forEach(el => {
+        const reveals = document.querySelectorAll('.reveal');
+        reveals.forEach(el => {
           const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.8 && rect.bottom >= 0) {
-            el.style.opacity = '1';
+          if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0 && !el.classList.contains('visible')) {
+            el.classList.add('visible');
           }
         });
       }
