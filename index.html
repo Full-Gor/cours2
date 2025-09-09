@@ -80,16 +80,7 @@
       --primary: #4A7043;
       --secondary: #F4A261;
       --background: #F8F1E9;
-      --text: #000000;
-      --button-bg: #F4A261;
-      --button-text: #FFFFFF;
-      --button-hover: #e8863b;
-      --card-bg: #FFFFFF;
-      --card-text: #000000;
-      --navbar-bg: #F8F1E9;
-      --navbar-text: #000000;
-      --footer-bg: #4A7043;
-      --footer-text: #FFFFFF;
+      --text: #2D3142;
     }
 
     body {
@@ -101,23 +92,12 @@
 
     h1, h2, h3 {
       font-family: 'Lora', serif;
-      color: var(--text);
     }
 
     /* Animations */
     @keyframes slideIn {
       0% { opacity: 0; transform: translateX(-50px) rotate(-5deg); }
       100% { opacity: 1; transform: translateX(0) rotate(0); }
-    }
-
-    @keyframes slideFromLeft {
-      0% { opacity: 0; transform: translateX(-100px); }
-      100% { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes slideFromRight {
-      0% { opacity: 0; transform: translateX(100px); }
-      100% { opacity: 1; transform: translateX(0); }
     }
 
     @keyframes fadeIn {
@@ -133,16 +113,6 @@
     .animate-slide-in {
       opacity: 0;
       animation: slideIn 0.8s ease-out forwards;
-    }
-
-    .animate-slide-left {
-      opacity: 0;
-      animation: slideFromLeft 0.8s ease-out forwards;
-    }
-
-    .animate-slide-right {
-      opacity: 0;
-      animation: slideFromRight 0.8s ease-out forwards;
     }
 
     .animate-fade-in {
@@ -171,11 +141,17 @@
       transform: rotateY(180deg);
     }
 
-    /* Navbar */
-    .nav-link {
-      color: var(--navbar-text);
+    .rotate-y-180 ul li {
+      color: black;
     }
 
+    .rotate-y-180 a {
+      color: white;
+      background-color: var(--secondary);
+      display: block;
+    }
+
+    /* Navbar */
     .nav-link:hover::after {
       content: '';
       position: absolute;
@@ -198,12 +174,6 @@
     .underline-btn {
       position: relative;
       overflow: hidden;
-      background: var(--button-bg);
-      color: var(--button-text);
-    }
-
-    .underline-btn:hover {
-      background: var(--button-hover);
     }
 
     .underline-btn::after {
@@ -227,15 +197,12 @@
       position: relative;
       transition: all 0.3s ease;
       border: 2px solid var(--secondary);
-      background: var(--button-bg);
-      color: var(--button-text);
     }
 
     .submit-btn:hover {
       transform: scale(1.05);
       box-shadow: 0 0 0 4px rgba(74, 112, 67, 0.2);
       border-color: var(--primary);
-      background: var(--button-hover);
     }
 
     /* Form */
@@ -258,36 +225,6 @@
       background: var(--primary);
       color: white;
       transform: scale(1.2);
-    }
-
-    /* Service Cards */
-    .service-card {
-      background: var(--card-bg);
-      color: var(--card-text);
-      border: 2px solid var(--primary);
-    }
-
-    .service-card:hover {
-      border-color: var(--secondary);
-    }
-
-    .service-card-icon {
-      color: var(--primary);
-    }
-
-    /* Package Cards */
-    .package-card-front {
-      background: var(--card-bg);
-      color: var(--card-text);
-    }
-
-    .package-card-back {
-      background: var(--primary);
-      color: white;
-    }
-
-    .package-card-back ul li {
-      color: white;
     }
 
     /* Admin Styles */
@@ -556,27 +493,6 @@
       display: block;
     }
 
-    .color-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .color-group {
-      flex: 1;
-      min-width: 200px;
-    }
-
-    .image-upload-btn {
-      background: #4CAF50;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-      margin-top: 5px;
-    }
-
     @media (max-width: 768px) {
       .admin-panel {
         padding: 20px;
@@ -601,30 +517,26 @@
         gap: 5px;
         flex-wrap: wrap;
       }
-
-      .color-row {
-        flex-direction: column;
-      }
     }
   </style>
 </head>
 <body>
   <div id="root">
     <!-- Navbar -->
-    <header class="fixed top-0 left-0 w-full z-50 shadow-md" id="header" style="background: var(--navbar-bg);">
+    <header class="fixed top-0 left-0 w-full z-50 bg-var(--background) shadow-md" id="header">
       <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#home" class="flex items-center space-x-2" id="logoLink">
-          <span class="text-2xl font-bold" style="font-family: 'Lora', serif; color: var(--navbar-text);" id="logoText">Cours d'Arabe</span>
+          <span class="text-2xl font-bold text-var(--text)" style="font-family: 'Lora', serif;" id="logoText">Cours d'Arabe</span>
         </a>
        
         <nav class="hidden md:flex space-x-8" id="mainNav">
-          <a href="#home" class="nav-link relative font-medium">Accueil</a>
-          <a href="#services" class="nav-link relative font-medium">Services</a>
-          <a href="#packages" class="nav-link relative font-medium">Forfaits</a>
-          <a href="#book-now" class="nav-link relative font-medium">Inscription</a>
+          <a href="#home" class="nav-link relative text-var(--text) font-medium">Accueil</a>
+          <a href="#services" class="nav-link relative text-var(--text) font-medium">Services</a>
+          <a href="#packages" class="nav-link relative text-var(--text) font-medium">Forfaits</a>
+          <a href="#book-now" class="nav-link relative text-var(--text) font-medium">Inscription</a>
         </nav>
 
-        <button class="md:hidden" style="color: var(--navbar-text);" id="menuButton">
+        <button class="md:hidden text-var(--text)" id="menuButton">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -634,34 +546,34 @@
       </div>
 
       <!-- Mobile Menu -->
-      <div class="md:hidden hidden shadow-lg transition-all duration-300" id="mobileMenu" style="background: var(--navbar-bg);">
+      <div class="md:hidden hidden bg-var(--background) shadow-lg transition-all duration-300" id="mobileMenu">
         <nav class="flex flex-col space-y-4 px-6 py-4" id="mobileNav">
-          <a href="#home" class="font-medium" style="color: var(--navbar-text);">Accueil</a>
-          <a href="#services" class="font-medium" style="color: var(--navbar-text);">Services</a>
-          <a href="#packages" class="font-medium" style="color: var(--navbar-text);">Forfaits</a>
-          <a href="#book-now" class="font-medium" style="color: var(--navbar-text);">Inscription</a>
+          <a href="#home" class="text-var(--text) font-medium hover:text-var(--primary)">Accueil</a>
+          <a href="#services" class="text-var(--text) font-medium hover:text-var(--primary)">Services</a>
+          <a href="#packages" class="text-var(--text) font-medium hover:text-var(--primary)">Forfaits</a>
+          <a href="#book-now" class="text-var(--text) font-medium hover:text-var(--primary)">Inscription</a>
         </nav>
       </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20" style="background: var(--primary);">
+    <section id="home" class="relative min-h-screen flex items-center justify-center bg-var(--primary) pt-20">
       <div class="absolute inset-0 opacity-20" id="heroImage" style="background-image: url('/arab.jpeg'); background-size: cover; background-position: center;"></div>
       <div class="relative z-10 text-center px-4 max-w-4xl">
         <h1 class="text-4xl md:text-6xl font-bold text-white animate-slide-in" id="heroTitle">Apprenez l'Arabe Authentique</h1>
-        <p class="text-xl md:text-2xl mt-4 animate-slide-in" style="animation-delay: 0.2s; color: var(--secondary);" id="heroSubtitle">Cours immersifs basés sur les Tomes 1 à 4 de Médine</p>
-        <a href="#book-now" class="inline-block mt-8 font-medium py-3 px-8 rounded-full underline-btn animate-slide-in" style="animation-delay: 0.4s;" id="heroButton">
+        <p class="text-xl md:text-2xl text-var(--secondary) mt-4 animate-slide-in" style="animation-delay: 0.2s;" id="heroSubtitle">Cours immersifs basés sur les Tomes 1 à 4 de Médine</p>
+        <a href="#book-now" class="inline-block mt-8 bg-var(--secondary) hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-full underline-btn animate-slide-in" style="animation-delay: 0.4s;" id="heroButton">
           S'inscrire Aujourd'hui
         </a>
       </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 animate-fade-in" style="background: white;">
+    <section id="services" class="py-20 bg-white animate-fade-in">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 animate-slide-in" id="servicesTitle">Nos Forces</h2>
-          <p class="text-lg max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s; color: var(--text);" id="servicesDescription">
+          <h2 class="text-3xl md:text-4xl font-bold text-var(--text) mb-4 animate-slide-in" id="servicesTitle">Nos Forces</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s;" id="servicesDescription">
             Une méthode éprouvée pour un apprentissage rapide
           </p>
         </div>
@@ -670,11 +582,11 @@
     </section>
 
     <!-- Packages Section -->
-    <section id="packages" class="py-20" style="background: var(--background);">
+    <section id="packages" class="py-20 bg-var(--background)">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 animate-slide-in" id="packagesTitle">Forfaits Adaptés</h2>
-          <p class="text-lg max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s; color: var(--text);" id="packagesDescription">
+          <h2 class="text-3xl md:text-4xl font-bold text-var(--text) mb-4 animate-slide-in" id="packagesTitle">Forfaits Adaptés</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s;" id="packagesDescription">
             Choisissez le plan qui vous convient
           </p>
         </div>
@@ -684,19 +596,19 @@
     </section>
 
     <!-- Booking Section -->
-    <section id="book-now" class="py-20" style="background: white;">
+    <section id="book-now" class="py-20 bg-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 animate-slide-in" id="bookingTitle">Démarrez Votre Parcours</h2>
-          <p class="text-lg max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s; color: var(--text);" id="bookingDescription">
+          <h2 class="text-3xl md:text-4xl font-bold text-var(--text) mb-4 animate-slide-in" id="bookingTitle">Démarrez Votre Parcours</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-slide-in" style="animation-delay: 0.2s;" id="bookingDescription">
             Inscrivez-vous en quelques étapes simples
           </p>
         </div>
         <div class="max-w-3xl mx-auto">
           <div class="flex justify-between mb-12" id="bookingSteps"></div>
-          <div class="rounded-2xl shadow-xl p-8" style="background: var(--card-bg);">
+          <div class="bg-white rounded-2xl shadow-xl p-8">
             <form id="bookingForm" class="space-y-6"></form>
-            <div class="order-success hidden text-white p-6 rounded-lg mt-4 text-center animate-slide-in" style="background: var(--primary);" id="order-success">
+            <div class="order-success hidden bg-var(--primary) text-white p-6 rounded-lg mt-4 text-center animate-slide-in" id="order-success">
               <svg class="w-8 h-8 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
@@ -708,24 +620,21 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12" id="footer" style="background: var(--footer-bg); color: var(--footer-text);">
+    <footer class="bg-var(--primary) text-white py-12" id="footer">
       <div class="container mx-auto px-4 text-center">
         <div class="flex items-center justify-center space-x-2 mb-4">
           <span class="text-2xl font-bold" style="font-family: 'Lora', serif;" id="footerTitle">Cours d'Arabe</span>
         </div>
-        <p class="mb-6" style="opacity: 0.9;" id="footerDescription">Votre partenaire pour l'apprentissage de l'arabe.</p>
+        <p class="text-gray-200 mb-6" id="footerDescription">Votre partenaire pour l'apprentissage de l'arabe.</p>
         <div class="flex justify-center space-x-6 mb-6" id="footerNav">
-          <a href="#home" class="hover:opacity-80">Accueil</a>
-          <a href="#services" class="hover:opacity-80">Services</a>
-          <a href="#packages" class="hover:opacity-80">Forfaits</a>
-          <a href="#book-now" class="hover:opacity-80">Inscription</a>
+          <a href="#home" class="hover:text-var(--secondary)">Accueil</a>
+          <a href="#services" class="hover:text-var(--secondary)">Services</a>
+          <a href="#packages" class="hover:text-var(--secondary)">Forfaits</a>
+          <a href="#book-now" class="hover:text-var(--secondary)">Inscription</a>
         </div>
       </div>
     </footer>
   </div>
-
-  <!-- Hidden file input for image upload -->
-  <input type="file" id="imageUploadInput" accept="image/*" style="display: none;" />
 
   <!-- Sync Indicator -->
   <div class="sync-indicator" id="syncIndicator">
@@ -755,7 +664,6 @@
         <button class="admin-tab" onclick="switchTab('packages')">Forfaits</button>
         <button class="admin-tab" onclick="switchTab('colors')">Couleurs</button>
         <button class="admin-tab" onclick="switchTab('fonts')">Polices</button>
-        <button class="admin-tab" onclick="switchTab('images')">Images</button>
         <button class="admin-tab" onclick="switchTab('firebase')">Firebase</button>
       </div>
 
@@ -765,4 +673,1144 @@
         
         <div class="form-group">
           <label>Titre Logo</label>
-          <input type="text" id="logoTextInput" placeholder="
+          <input type="text" id="logoTextInput" placeholder="Cours d'Arabe" />
+        </div>
+        
+        <div class="form-group">
+          <label>Titre Hero</label>
+          <input type="text" id="heroTitleInput" placeholder="Apprenez l'Arabe Authentique" />
+        </div>
+        
+        <div class="form-group">
+          <label>Sous-titre Hero</label>
+          <input type="text" id="heroSubtitleInput" placeholder="Cours immersifs..." />
+        </div>
+        
+        <div class="form-group">
+          <label>Image Hero URL</label>
+          <input type="text" id="heroImageInput" placeholder="/arab.jpeg" />
+        </div>
+        
+        <div class="form-group">
+          <label>Titre Section Services</label>
+          <input type="text" id="servicesTitleInput" placeholder="Nos Forces" />
+        </div>
+        
+        <div class="form-group">
+          <label>Description Services</label>
+          <textarea id="servicesDescInput" placeholder="Une méthode éprouvée..."></textarea>
+        </div>
+        
+        <button class="btn-primary" onclick="saveContent()">Sauvegarder Contenu</button>
+        <button class="btn-danger" onclick="resetContent()">Réinitialiser</button>
+      </div>
+
+      <!-- Packages Tab -->
+      <div class="tab-content" id="packages-tab">
+        <h3>Gestion des Forfaits</h3>
+        
+        <div class="form-group">
+          <label>Titre du forfait</label>
+          <input type="text" id="packageTitle" placeholder="Ex: Mensuel Solo" />
+        </div>
+        
+        <div class="form-group">
+          <label>Type</label>
+          <select id="packageType">
+            <option value="mensuel">Mensuel</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Prix (€)</label>
+          <input type="number" id="packagePrice" placeholder="180" />
+        </div>
+        
+        <div class="form-group">
+          <label>Format</label>
+          <select id="packageFormat">
+            <option value="solo">Solo</option>
+            <option value="groupe">Groupe</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Image (URL ou nom de fichier local)</label>
+          <input type="text" id="packageImage" placeholder="cour.jpg ou https://exemple.com/image.jpg" onchange="validateImage(this.value)" />
+          <small style="color: #888; font-size: 12px;">
+            • Fichier local : cour.jpg, cour2.jpg, etc.<br>
+            • URL internet : https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d<br>
+            • Localhost : http://localhost:3000/image.jpg<br>
+            • Exemples : https://picsum.photos/400/300, https://via.placeholder.com/400x300
+          </small>
+          <div id="imagePreview" style="margin-top: 10px; display: none;">
+            <img id="previewImg" style="max-width: 200px; max-height: 150px; border-radius: 5px; border: 1px solid #ddd;" />
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Caractéristiques (une par ligne)</label>
+          <textarea id="packageFeatures" rows="5" placeholder="8h de cours/mois&#10;Tomes 1-4 (niveau choisi)&#10;Cours pour 2 personnes"></textarea>
+        </div>
+        
+        <button class="btn-primary" onclick="addPackage()">Ajouter Forfait</button>
+        
+        <div class="list-item" style="margin-top: 30px;">
+          <h4>Forfaits actuels</h4>
+          <div id="packagesList"></div>
+        </div>
+      </div>
+
+      <!-- Colors Tab -->
+      <div class="tab-content" id="colors-tab">
+        <h3>Configuration des Couleurs</h3>
+        
+        <div class="form-group">
+          <label>Couleur Primaire</label>
+          <input type="color" id="primaryColor" value="#4A7043" />
+          <span id="primaryColorValue">#4A7043</span>
+        </div>
+        
+        <div class="form-group">
+          <label>Couleur Secondaire</label>
+          <input type="color" id="secondaryColor" value="#F4A261" />
+          <span id="secondaryColorValue">#F4A261</span>
+        </div>
+        
+        <div class="form-group">
+          <label>Couleur de Fond</label>
+          <input type="color" id="backgroundColorInput" value="#F8F1E9" />
+          <span id="backgroundColorValue">#F8F1E9</span>
+        </div>
+        
+        <div class="form-group">
+          <label>Couleur du Texte</label>
+          <input type="color" id="textColorInput" value="#2D3142" />
+          <span id="textColorValue">#2D3142</span>
+        </div>
+        
+        <button class="btn-primary" onclick="saveColors()">Appliquer Couleurs</button>
+        <button class="btn-danger" onclick="resetColors()">Couleurs Par Défaut</button>
+      </div>
+
+      <!-- Fonts Tab -->
+      <div class="tab-content" id="fonts-tab">
+        <h3>Configuration des Polices</h3>
+        
+        <div class="form-group">
+          <label>Police Principale (Corps de texte)</label>
+          <select id="bodyFont">
+            <option value="Roboto">Roboto (Moderne)</option>
+            <option value="Arial">Arial (Classique)</option>
+            <option value="Georgia">Georgia (Élégant)</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Orbitron">Orbitron (Futuriste)</option>
+            <option value="Cinzel">Cinzel (Renaissance)</option>
+            <option value="Almendra">Almendra (Médiéval)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Police Titres (H1, H2, H3)</label>
+          <select id="headingFont">
+            <option value="Lora">Lora (Élégant)</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Cinzel">Cinzel (Renaissance)</option>
+            <option value="UnifrakturMaguntia">UnifrakturMaguntia (Gothique)</option>
+            <option value="Orbitron">Orbitron (Cyberpunk)</option>
+            <option value="Pirata One">Pirata One</option>
+            <option value="Monoton">Monoton (Néon)</option>
+            <option value="Almendra">Almendra (Médiéval)</option>
+          </select>
+        </div>
+        
+        <button class="btn-primary" onclick="saveFonts()">Appliquer Polices</button>
+        <button class="btn-danger" onclick="resetFonts()">Polices Par Défaut</button>
+      </div>
+
+      <!-- Firebase Tab -->
+      <div class="tab-content" id="firebase-tab">
+        <h3>Configuration Firebase</h3>
+        <div class="form-group">
+          <label>API Key</label>
+          <input type="text" id="firebaseApiKey" placeholder="AIzaSy..." />
+        </div>
+        <div class="form-group">
+          <label>Auth Domain</label>
+          <input type="text" id="firebaseAuthDomain" placeholder="your-app.firebaseapp.com" />
+        </div>
+        <div class="form-group">
+          <label>Project ID</label>
+          <input type="text" id="firebaseProjectId" placeholder="your-project-id" />
+        </div>
+        <div class="form-group">
+          <label>Storage Bucket</label>
+          <input type="text" id="firebaseStorageBucket" placeholder="your-app.appspot.com" />
+        </div>
+        <div class="form-group">
+          <label>Messaging Sender ID</label>
+          <input type="text" id="firebaseMessagingSenderId" placeholder="123456789" />
+        </div>
+        <div class="form-group">
+          <label>App ID</label>
+          <input type="text" id="firebaseAppId" placeholder="1:123456789:web:abc123" />
+        </div>
+        <button class="btn-primary" onclick="saveFirebaseConfig()">Sauvegarder et Connecter</button>
+        <button class="btn-danger" onclick="disconnectFirebase()">Déconnecter</button>
+        <div class="firebase-status disconnected" id="firebaseStatus">
+          Non connecté - Données stockées localement
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Firebase instance
+    let firebaseApp = null;
+    let db = null;
+    let isFirebaseConnected = false;
+
+    // Default configuration
+    const defaultConfig = {
+      content: {
+        logoText: 'Cours d\'Arabe',
+        heroTitle: 'Apprenez l\'Arabe Authentique',
+        heroSubtitle: 'Cours immersifs basés sur les Tomes 1 à 4 de Médine',
+        heroImage: '/arab.jpeg',
+        servicesTitle: 'Nos Forces',
+        servicesDescription: 'Une méthode éprouvée pour un apprentissage rapide'
+      },
+      colors: {
+        primary: '#4A7043',
+        secondary: '#F4A261',
+        background: '#F8F1E9',
+        text: '#2D3142'
+      },
+      fonts: {
+        body: 'Roboto',
+        heading: 'Lora'
+      },
+      services: [
+        {
+          icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"></path><path d="M12 8v8M8 12h8"></path></svg>',
+          title: "Méthode Médine",
+          description: "Cours structurés autour des livres de Médine pour tous niveaux."
+        },
+        {
+          icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>',
+          title: "Professeurs Qualifiés",
+          description: "Enseignants natifs maîtrisant la pédagogie Médine."
+        },
+        {
+          icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+          title: "Flexibilité Totale",
+          description: "Cours en ligne ou en présentiel, adaptés à votre emploi du temps."
+        },
+        {
+          icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+          title: "Petits Groupes",
+          description: "Cours en solo ou groupes restreints pour une attention personnalisée."
+        }
+      ],
+      packages: [
+        {
+          id: 'monthly-solo',
+          title: 'Mensuel Solo',
+          type: 'mensuel',
+          price: 180,
+          features: [
+            '8h de cours/mois',
+            'Tomes 1-4 (niveau choisi)',
+            'Cours individuel',
+            'Ressources numériques incluses'
+          ],
+          image: 'cour.jpg',
+          format: 'solo'
+        },
+        {
+          id: 'monthly-group',
+          title: 'Mensuel Groupe',
+          type: 'mensuel',
+          price: 120,
+          features: [
+            '8h de cours/mois',
+            'Tomes 1-4 (niveau choisi)',
+            'Cours pour 4+ personnes',
+            'Ressources numériques incluses'
+          ],
+          image: 'cour2.jpg',
+          format: 'groupe'
+        }
+      ],
+      firebase: {}
+    };
+
+    let siteConfig = JSON.parse(JSON.stringify(defaultConfig));
+
+    // Firebase functions
+    function initFirebase() {
+      const config = siteConfig.firebase;
+      if (config.apiKey && config.projectId) {
+        try {
+          firebaseApp = firebase.initializeApp(config);
+          db = firebase.firestore();
+          isFirebaseConnected = true;
+          updateFirebaseStatus('connected');
+          loadFromFirebase();
+          return true;
+        } catch (error) {
+          console.error('Firebase initialization error:', error);
+          updateFirebaseStatus('disconnected');
+          return false;
+        }
+      }
+      return false;
+    }
+
+    async function loadFromFirebase() {
+      if (!db) return;
+      
+      showSyncIndicator('Chargement depuis Firebase...');
+      
+      try {
+        const doc = await db.collection('arabeCourseConfig').doc('main').get();
+        if (doc.exists) {
+          const data = doc.data();
+          Object.assign(siteConfig, data);
+          applyConfig();
+          showSyncIndicator('Données synchronisées', 'success');
+        } else {
+          await saveToFirebase();
+        }
+      } catch (error) {
+        console.error('Error loading from Firebase:', error);
+        showSyncIndicator('Erreur de synchronisation', 'error');
+      }
+    }
+
+    async function saveToFirebase() {
+      if (!db) {
+        saveToLocalStorage();
+        return;
+      }
+      
+      showSyncIndicator('Sauvegarde sur Firebase...');
+      
+      try {
+        await db.collection('arabeCourseConfig').doc('main').set(siteConfig);
+        showSyncIndicator('Sauvegardé sur Firebase', 'success');
+      } catch (error) {
+        console.error('Error saving to Firebase:', error);
+        showSyncIndicator('Erreur de sauvegarde', 'error');
+        saveToLocalStorage();
+      }
+    }
+
+    function saveToLocalStorage() {
+      localStorage.setItem('arabeCourseConfig', JSON.stringify(siteConfig));
+    }
+
+    function loadConfig() {
+      const saved = localStorage.getItem('arabeCourseConfig');
+      if (saved) {
+        Object.assign(siteConfig, JSON.parse(saved));
+      }
+      
+      if (siteConfig.firebase && siteConfig.firebase.apiKey) {
+        initFirebase();
+      }
+    }
+
+    function saveConfig() {
+      if (isFirebaseConnected) {
+        saveToFirebase();
+      } else {
+        saveToLocalStorage();
+      }
+    }
+
+    function showSyncIndicator(message, type = 'syncing') {
+      const indicator = document.getElementById('syncIndicator');
+      const status = document.getElementById('syncStatus');
+      
+      status.textContent = message;
+      indicator.className = 'sync-indicator show';
+      
+      if (type === 'success') {
+        indicator.style.background = 'rgba(0, 255, 0, 0.2)';
+        indicator.style.color = '#00ff00';
+      } else if (type === 'error') {
+        indicator.style.background = 'rgba(255, 0, 0, 0.2)';
+        indicator.style.color = '#ff4444';
+      } else {
+        indicator.style.background = 'rgba(255, 255, 0, 0.2)';
+        indicator.style.color = '#ffff00';
+      }
+      
+      setTimeout(() => {
+        indicator.classList.remove('show');
+      }, 3000);
+    }
+
+    function updateFirebaseStatus(status) {
+      const statusEl = document.getElementById('firebaseStatus');
+      if (status === 'connected') {
+        statusEl.textContent = 'Connecté à Firebase';
+        statusEl.className = 'firebase-status connected';
+      } else if (status === 'syncing') {
+        statusEl.textContent = 'Synchronisation...';
+        statusEl.className = 'firebase-status syncing';
+      } else {
+        statusEl.textContent = 'Non connecté - Données stockées localement';
+        statusEl.className = 'firebase-status disconnected';
+      }
+    }
+
+    // Apply configuration
+    function applyConfig() {
+      // Apply content
+      document.getElementById('logoText').textContent = siteConfig.content.logoText;
+      document.getElementById('heroTitle').textContent = siteConfig.content.heroTitle;
+      document.getElementById('heroSubtitle').textContent = siteConfig.content.heroSubtitle;
+      document.getElementById('heroImage').style.backgroundImage = `url('${siteConfig.content.heroImage}')`;
+      document.getElementById('servicesTitle').textContent = siteConfig.content.servicesTitle;
+      document.getElementById('servicesDescription').textContent = siteConfig.content.servicesDescription;
+      document.getElementById('footerTitle').textContent = siteConfig.content.logoText;
+
+      // Apply colors
+      const root = document.documentElement;
+      root.style.setProperty('--primary', siteConfig.colors.primary);
+      root.style.setProperty('--secondary', siteConfig.colors.secondary);
+      root.style.setProperty('--background', siteConfig.colors.background);
+      root.style.setProperty('--text', siteConfig.colors.text);
+
+      // Apply fonts
+      document.body.style.fontFamily = `'${siteConfig.fonts.body}', sans-serif`;
+      document.querySelectorAll('h1, h2, h3').forEach(el => {
+        el.style.fontFamily = `'${siteConfig.fonts.heading}', serif`;
+      });
+
+      // Render services
+      renderServices();
+      
+      // Render packages
+      renderPackages();
+    }
+
+    function renderServices() {
+      const servicesGrid = document.getElementById('servicesGrid');
+      servicesGrid.innerHTML = '';
+      
+      siteConfig.services.forEach((service, index) => {
+        const serviceCard = document.createElement('div');
+        serviceCard.className = 'flex justify-center animate-fade-in';
+        serviceCard.style.animationDelay = `${index * 0.2}s`;
+        serviceCard.innerHTML = `
+          <div class="relative w-64 h-64 bg-white shadow-lg rounded-lg flex flex-col items-center justify-center text-center p-6 border-2 border-var(--primary) transition-all duration-300 hover:border-var(--secondary)">
+            <div class="text-var(--primary) mb-4">${service.icon}</div>
+            <h3 class="text-lg font-bold text-var(--text) mb-2">${service.title}</h3>
+            <p class="text-sm text-gray-600">${service.description}</p>
+          </div>
+        `;
+        servicesGrid.appendChild(serviceCard);
+      });
+    }
+
+    // Image handling function
+    function getImageUrl(imagePath) {
+      // Si c'est déjà une URL complète (http/https), on la retourne telle quelle
+      if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+        return imagePath;
+      }
+      
+      // Si c'est un fichier local, on le retourne tel quel (sera résolu par le serveur)
+      return imagePath;
+    }
+
+    // Image validation and preview function
+    function validateImage(imagePath) {
+      const previewDiv = document.getElementById('imagePreview');
+      const previewImg = document.getElementById('previewImg');
+      
+      if (!imagePath || imagePath.trim() === '') {
+        previewDiv.style.display = 'none';
+        return;
+      }
+      
+      const imageUrl = getImageUrl(imagePath);
+      previewImg.src = imageUrl;
+      previewDiv.style.display = 'block';
+      
+      // Test if image loads
+      previewImg.onload = function() {
+        previewImg.style.border = '1px solid #4CAF50';
+        previewImg.title = 'Image chargée avec succès';
+      };
+      
+      previewImg.onerror = function() {
+        previewImg.style.border = '1px solid #f44336';
+        previewImg.title = 'Erreur de chargement de l\'image';
+        previewImg.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY0NDM2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkVycmV1ciBkZSBjaGFyZ2VtZW50PC90ZXh0Pjwvc3ZnPg==';
+      };
+    }
+
+    // Package rendering
+    let activeTab = 'mensuel';
+
+    function renderPackages() {
+      const packageTypes = ['mensuel'];
+      const packageTabs = document.getElementById('packageTabs');
+      packageTabs.innerHTML = '';
+
+      packageTypes.forEach((type, index) => {
+        const tab = document.createElement('button');
+        tab.className = `px-6 py-3 m-2 rounded-lg font-medium shadow-md transition-all duration-300 animate-fade-in ${
+          type === activeTab ? 'bg-var(--primary) text-white' : 'bg-white text-var(--text) hover:bg-var(--primary) hover:text-white'
+        }`;
+        tab.style.animationDelay = `${index * 0.1}s`;
+        tab.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+        tab.addEventListener('click', () => {
+          activeTab = type;
+          renderPackageGrid();
+          renderPackageTabs();
+        });
+        packageTabs.appendChild(tab);
+      });
+
+      renderPackageGrid();
+    }
+
+    function renderPackageTabs() {
+      const packageTabs = document.getElementById('packageTabs');
+      packageTabs.querySelectorAll('button').forEach(btn => {
+        const isActive = btn.textContent.toLowerCase() === activeTab;
+        btn.className = `px-6 py-3 m-2 rounded-lg font-medium shadow-md transition-all duration-300 ${
+          isActive ? 'bg-var(--primary) text-white' : 'bg-white text-var(--text) hover:bg-var(--primary) hover:text-white'
+        }`;
+      });
+    }
+
+    function renderPackageGrid() {
+      const packagesGrid = document.getElementById('packagesGrid');
+      packagesGrid.innerHTML = '';
+     
+      const filteredPackages = siteConfig.packages.filter(pkg => pkg.type === activeTab);
+     
+      filteredPackages.forEach((pkg, index) => {
+        const packageCard = document.createElement('div');
+        packageCard.className = 'relative w-full h-96 perspective-1000 cursor-pointer group animate-fade-in';
+        packageCard.style.animationDelay = `${index * 0.2}s`;
+        packageCard.innerHTML = `
+          <div class="absolute w-full h-full transition-transform duration-700 preserve-3d">
+            <div class="absolute w-full h-full backface-hidden bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center">
+              <div class="relative w-full h-40 mb-4 overflow-hidden" style="clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%)">
+                <img src="${getImageUrl(pkg.image)}" alt="${pkg.title}" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vbiB0cm91dsOpZTwvdGV4dD48L3N2Zz4='">
+              </div>
+              <h3 class="text-xl font-bold text-var(--text) mb-2">${pkg.title}</h3>
+              <p class="text-2xl font-bold text-var(--primary)">€${pkg.price} <span class="text-sm font-normal text-gray-600">${pkg.type === 'horaire' ? '/heure' : pkg.type === 'annuel' ? '/an' : pkg.type === 'mensuel' ? '/mois' : '/semaine'}</span></p>
+            </div>
+            <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-var(--primary) rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center text-white">
+              <ul class="space-y-2 text-center">
+                ${pkg.features.map(feature => `<li>${feature}</li>`).join('')}
+              </ul>
+              <a href="#book-now" class="mt-4 inline-block bg-var(--secondary) hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-full underline-btn">S'inscrire</a>
+            </div>
+          </div>
+        `;
+       
+        packageCard.addEventListener('mouseenter', () => {
+          packageCard.querySelector('.preserve-3d').classList.add('rotate-y-180');
+        });
+       
+        packageCard.addEventListener('mouseleave', () => {
+          packageCard.querySelector('.preserve-3d').classList.remove('rotate-y-180');
+        });
+       
+        packagesGrid.appendChild(packageCard);
+      });
+    }
+
+    // Admin access with triple click
+    let clickCount = 0;
+    let clickTimer;
+
+    document.addEventListener('DOMContentLoaded', function() {
+      loadConfig();
+      applyConfig();
+      
+      const logoText = document.getElementById('logoText');
+      logoText.addEventListener('click', function(e) {
+        e.preventDefault();
+        clickCount++;
+        
+        if (clickCount === 1) {
+          clickTimer = setTimeout(() => {
+            clickCount = 0;
+          }, 500);
+        }
+        
+        if (clickCount === 3) {
+          clearTimeout(clickTimer);
+          clickCount = 0;
+          openPasswordModal();
+        }
+      });
+    });
+
+    // Modal functions
+    function openPasswordModal() {
+      document.getElementById('passwordModal').classList.add('show');
+      document.getElementById('passwordInput').focus();
+    }
+
+    function closePasswordModal() {
+      document.getElementById('passwordModal').classList.remove('show');
+      document.getElementById('passwordInput').value = '';
+    }
+
+    function checkPassword() {
+      const password = document.getElementById('passwordInput').value;
+      if (password === 'oumar123') {
+        closePasswordModal();
+        openAdminPanel();
+      } else {
+        alert('Mot de passe incorrect');
+        document.getElementById('passwordInput').value = '';
+      }
+    }
+
+    function openAdminPanel() {
+      document.getElementById('adminModal').classList.add('show');
+      loadAdminValues();
+      updatePackagesList();
+      loadFirebaseConfig();
+    }
+
+    function closeAdminPanel() {
+      document.getElementById('adminModal').classList.remove('show');
+    }
+
+    // Tab switching
+    function switchTab(tabName) {
+      document.querySelectorAll('.admin-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      event.target.classList.add('active');
+      document.getElementById(tabName + '-tab').classList.add('active');
+    }
+
+    // Load admin values
+    function loadAdminValues() {
+      // Content
+      document.getElementById('logoTextInput').value = siteConfig.content.logoText;
+      document.getElementById('heroTitleInput').value = siteConfig.content.heroTitle;
+      document.getElementById('heroSubtitleInput').value = siteConfig.content.heroSubtitle;
+      document.getElementById('heroImageInput').value = siteConfig.content.heroImage;
+      document.getElementById('servicesTitleInput').value = siteConfig.content.servicesTitle;
+      document.getElementById('servicesDescInput').value = siteConfig.content.servicesDescription;
+      
+      // Colors
+      document.getElementById('primaryColor').value = siteConfig.colors.primary;
+      document.getElementById('primaryColorValue').textContent = siteConfig.colors.primary;
+      document.getElementById('secondaryColor').value = siteConfig.colors.secondary;
+      document.getElementById('secondaryColorValue').textContent = siteConfig.colors.secondary;
+      document.getElementById('backgroundColorInput').value = siteConfig.colors.background;
+      document.getElementById('backgroundColorValue').textContent = siteConfig.colors.background;
+      document.getElementById('textColorInput').value = siteConfig.colors.text;
+      document.getElementById('textColorValue').textContent = siteConfig.colors.text;
+      
+      // Fonts
+      document.getElementById('bodyFont').value = siteConfig.fonts.body;
+      document.getElementById('headingFont').value = siteConfig.fonts.heading;
+    }
+
+    // Content functions
+    function saveContent() {
+      siteConfig.content = {
+        logoText: document.getElementById('logoTextInput').value,
+        heroTitle: document.getElementById('heroTitleInput').value,
+        heroSubtitle: document.getElementById('heroSubtitleInput').value,
+        heroImage: document.getElementById('heroImageInput').value,
+        servicesTitle: document.getElementById('servicesTitleInput').value,
+        servicesDescription: document.getElementById('servicesDescInput').value
+      };
+      saveConfig();
+      applyConfig();
+      alert('Contenu sauvegardé !');
+    }
+
+    function resetContent() {
+      siteConfig.content = JSON.parse(JSON.stringify(defaultConfig.content));
+      saveConfig();
+      applyConfig();
+      loadAdminValues();
+      alert('Contenu réinitialisé !');
+    }
+
+    // Package functions
+    function addPackage() {
+      const title = document.getElementById('packageTitle').value;
+      const type = document.getElementById('packageType').value;
+      const price = parseFloat(document.getElementById('packagePrice').value);
+      const format = document.getElementById('packageFormat').value;
+      const image = document.getElementById('packageImage').value;
+      const features = document.getElementById('packageFeatures').value.split('\n').filter(f => f.trim());
+      
+      if (title && price && features.length > 0) {
+        const id = 'package_' + Date.now();
+        siteConfig.packages.push({
+          id,
+          title,
+          type,
+          price,
+          format,
+          image,
+          features
+        });
+        saveConfig();
+        applyConfig();
+        updatePackagesList();
+        
+        // Clear form
+        document.getElementById('packageTitle').value = '';
+        document.getElementById('packagePrice').value = '';
+        document.getElementById('packageImage').value = '';
+        document.getElementById('packageFeatures').value = '';
+        
+        alert('Forfait ajouté !');
+      }
+    }
+
+    function updatePackagesList() {
+      const list = document.getElementById('packagesList');
+      list.innerHTML = '';
+      
+      siteConfig.packages.forEach((pkg, index) => {
+        const item = document.createElement('div');
+        item.className = 'list-item';
+        item.innerHTML = `
+          <div class="list-item-view">
+            <div class="list-item-info">
+              <strong>${pkg.title}</strong> - €${pkg.price} (${pkg.type})<br>
+              <small>Format: ${pkg.format} | Image: ${pkg.image}</small><br>
+              <small>${pkg.features.join(', ')}</small>
+            </div>
+            <div class="list-item-actions">
+              <button class="btn-edit" onclick="editPackage(${index})">Modifier</button>
+              <button class="btn-danger" onclick="deletePackage(${index})">Supprimer</button>
+            </div>
+          </div>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function editPackage(index) {
+      const pkg = siteConfig.packages[index];
+      document.getElementById('packageTitle').value = pkg.title;
+      document.getElementById('packageType').value = pkg.type;
+      document.getElementById('packagePrice').value = pkg.price;
+      document.getElementById('packageFormat').value = pkg.format;
+      document.getElementById('packageImage').value = pkg.image;
+      document.getElementById('packageFeatures').value = pkg.features.join('\n');
+      
+      // Remove the package to allow re-adding with modifications
+      siteConfig.packages.splice(index, 1);
+      saveConfig();
+      applyConfig();
+      updatePackagesList();
+    }
+
+    function deletePackage(index) {
+      if (confirm('Supprimer ce forfait ?')) {
+        siteConfig.packages.splice(index, 1);
+        saveConfig();
+        applyConfig();
+        updatePackagesList();
+      }
+    }
+
+    // Color functions
+    function saveColors() {
+      siteConfig.colors = {
+        primary: document.getElementById('primaryColor').value,
+        secondary: document.getElementById('secondaryColor').value,
+        background: document.getElementById('backgroundColorInput').value,
+        text: document.getElementById('textColorInput').value
+      };
+      saveConfig();
+      applyConfig();
+      alert('Couleurs appliquées !');
+    }
+
+    function resetColors() {
+      siteConfig.colors = JSON.parse(JSON.stringify(defaultConfig.colors));
+      saveConfig();
+      applyConfig();
+      loadAdminValues();
+      alert('Couleurs réinitialisées !');
+    }
+
+    // Font functions
+    function saveFonts() {
+      siteConfig.fonts = {
+        body: document.getElementById('bodyFont').value,
+        heading: document.getElementById('headingFont').value
+      };
+      saveConfig();
+      applyConfig();
+      alert('Polices appliquées !');
+    }
+
+    function resetFonts() {
+      siteConfig.fonts = JSON.parse(JSON.stringify(defaultConfig.fonts));
+      saveConfig();
+      applyConfig();
+      loadAdminValues();
+      alert('Polices réinitialisées !');
+    }
+
+    // Firebase configuration
+    function loadFirebaseConfig() {
+      if (siteConfig.firebase) {
+        document.getElementById('firebaseApiKey').value = siteConfig.firebase.apiKey || '';
+        document.getElementById('firebaseAuthDomain').value = siteConfig.firebase.authDomain || '';
+        document.getElementById('firebaseProjectId').value = siteConfig.firebase.projectId || '';
+        document.getElementById('firebaseStorageBucket').value = siteConfig.firebase.storageBucket || '';
+        document.getElementById('firebaseMessagingSenderId').value = siteConfig.firebase.messagingSenderId || '';
+        document.getElementById('firebaseAppId').value = siteConfig.firebase.appId || '';
+      }
+    }
+
+    function saveFirebaseConfig() {
+      siteConfig.firebase = {
+        apiKey: document.getElementById('firebaseApiKey').value,
+        authDomain: document.getElementById('firebaseAuthDomain').value,
+        projectId: document.getElementById('firebaseProjectId').value,
+        storageBucket: document.getElementById('firebaseStorageBucket').value,
+        messagingSenderId: document.getElementById('firebaseMessagingSenderId').value,
+        appId: document.getElementById('firebaseAppId').value
+      };
+      
+      saveToLocalStorage();
+      
+      if (initFirebase()) {
+        alert('Connecté à Firebase avec succès !');
+        saveToFirebase();
+      } else {
+        alert('Configuration sauvegardée localement. Vérifiez vos identifiants Firebase.');
+      }
+    }
+
+    function disconnectFirebase() {
+      if (firebaseApp) {
+        firebaseApp.delete();
+        firebaseApp = null;
+        db = null;
+        isFirebaseConnected = false;
+        updateFirebaseStatus('disconnected');
+        alert('Déconnecté de Firebase');
+      }
+    }
+
+    // Color preview updates
+    ['primaryColor', 'secondaryColor', 'backgroundColorInput', 'textColorInput'].forEach(id => {
+      document.addEventListener('DOMContentLoaded', () => {
+        const input = document.getElementById(id);
+        const valueSpan = document.getElementById(id.replace('Input', '') + 'Value');
+        if (input && valueSpan) {
+          input.addEventListener('input', (e) => {
+            valueSpan.textContent = e.target.value;
+          });
+        }
+      });
+    });
+
+    // Password input enter key
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          checkPassword();
+        }
+      });
+    });
+
+    // Navbar functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuButton = document.getElementById('menuButton');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Scroll animations
+      function revealOnScroll() {
+        const elements = document.querySelectorAll('.animate-slide-in, .animate-fade-in');
+        elements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.8 && rect.bottom >= 0) {
+            el.style.opacity = '1';
+          }
+        });
+      }
+
+      window.addEventListener('scroll', revealOnScroll);
+      window.addEventListener('load', revealOnScroll);
+
+      // Navbar animation
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('shadow-lg');
+        } else {
+          header.classList.remove('shadow-lg');
+        }
+      });
+    });
+
+    // Booking Form
+    let currentStep = 1;
+    const totalSteps = 3;
+    let formData = {
+      packageId: 'monthly-solo',
+      level: 'tome1',
+      guests: 1,
+      specialRequests: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      startDate: ''
+    };
+
+    // Initialize booking form
+    document.addEventListener('DOMContentLoaded', function() {
+      renderBookingSteps();
+      renderFormStep();
+    });
+
+    function renderBookingSteps() {
+      const bookingSteps = document.getElementById('bookingSteps');
+      bookingSteps.innerHTML = '';
+      
+      for (let i = 1; i <= totalSteps; i++) {
+        const step = document.createElement('div');
+        step.className = `flex flex-col items-center ${i === currentStep ? 'step-active' : ''} animate-fade-in`;
+        step.style.animationDelay = `${i * 0.1}s`;
+        step.innerHTML = `
+          <div class="step-circle w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 text-gray-500">${i}</div>
+          <span class="text-sm mt-2 text-gray-600">${i === 1 ? 'Cours' : i === 2 ? 'Préférences' : 'Coordonnées'}</span>
+        `;
+        bookingSteps.appendChild(step);
+      }
+    }
+
+    function renderFormStep() {
+      const bookingForm = document.getElementById('bookingForm');
+      bookingForm.innerHTML = '';
+     
+      if (currentStep === 1) {
+        bookingForm.innerHTML = `
+          <div class="space-y-6">
+            <h3 class="text-2xl font-bold text-var(--text) mb-4 animate-slide-in">Sélectionnez Votre Cours</h3>
+            <div class="animate-fade-in" style="animation-delay: 0.1s;">
+              <label class="block text-gray-700 font-medium mb-2">Forfait</label>
+              <select class="form-input w-full p-3 border border-gray-300 bg-gray-50" onchange="updateFormData('packageId', this.value)">
+                ${siteConfig.packages.map(pkg => `
+                  <option value="${pkg.id}" ${formData.packageId === pkg.id ? 'selected' : ''}>${pkg.title} - €${pkg.price} ${pkg.type === 'horaire' ? '/heure' : pkg.type === 'annuel' ? '/an' : pkg.type === 'mensuel' ? '/mois' : '/semaine'}</option>
+                `).join('')}
+              </select>
+            </div>
+            <div class="animate-fade-in" style="animation-delay: 0.2s;">
+              <label class="block text-gray-700 font-medium mb-2">Niveau</label>
+              <select class="form-input w-full p-3 border border-gray-300 bg-gray-50" onchange="updateFormData('level', this.value)">
+                <option value="tome1" ${formData.level === 'tome1' ? 'selected' : ''}>Tome 1 - Débutant</option>
+                <option value="tome2" ${formData.level === 'tome2' ? 'selected' : ''}>Tome 2 - Intermédiaire</option>
+                <option value="tome3" ${formData.level === 'tome3' ? 'selected' : ''}>Tome 3 - Avancé</option>
+                <option value="tome4" ${formData.level === 'tome4' ? 'selected' : ''}>Tome 4 - Expert</option>
+              </select>
+            </div>
+            <div class="animate-fade-in" style="animation-delay: 0.3s;">
+              <label class="block text-gray-700 font-medium mb-2">Participants</label>
+              <div class="flex border border-gray-300 rounded-2xl overflow-hidden bg-gray-50">
+                <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200" onclick="updateGuests(-1)">-</button>
+                <input type="number" value="${formData.guests}" class="form-input w-full text-center p-2 border-x border-gray-300 focus:outline-none" onchange="updateFormData('guests', this.value)" min="1">
+                <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200" onclick="updateGuests(1)">+</button>
+              </div>
+            </div>
+            <div class="animate-fade-in" style="animation-delay: 0.4s;">
+              <label class="block text-gray-700 font-medium mb-2">Date de Début</label>
+              <input type="date" class="form-input w-full p-3 border border-gray-300 bg-gray-50" value="${formData.startDate}" onchange="updateFormData('startDate', this.value)" required>
+            </div>
+          </div>
+        `;
+      } else if (currentStep === 2) {
+        bookingForm.innerHTML = `
+          <div class="space-y-6">
+            <h3 class="text-2xl font-bold text-var(--text) mb-4 animate-slide-in">Demandes Spéciales</h3>
+            <div class="animate-fade-in" style="animation-delay: 0.1s;">
+              <label class="block text-gray-700 font-medium mb-2">Préférences</label>
+              <textarea rows="5" placeholder="Horaires, objectifs spécifiques, etc." class="form-input w-full p-3 border border-gray-300 bg-gray-50" onchange="updateFormData('specialRequests', this.value)">${formData.specialRequests}</textarea>
+            </div>
+          </div>
+        `;
+      } else if (currentStep === 3) {
+        bookingForm.innerHTML = `
+          <div class="space-y-6">
+            <h3 class="text-2xl font-bold text-var(--text) mb-4 animate-slide-in">Vos Informations</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="animate-fade-in" style="animation-delay: 0.1s;">
+                <label class="block text-gray-700 font-medium mb-2">Prénom</label>
+                <input type="text" placeholder="Votre prénom" class="form-input w-full p-3 border border-gray-300 bg-gray-50" value="${formData.firstName}" onchange="updateFormData('firstName', this.value)" required>
+              </div>
+              <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                <label class="block text-gray-700 font-medium mb-2">Nom</label>
+                <input type="text" placeholder="Votre nom" class="form-input w-full p-3 border border-gray-300 bg-gray-50" value="${formData.lastName}" onchange="updateFormData('lastName', this.value)" required>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="animate-fade-in" style="animation-delay: 0.3s;">
+                <label class="block text-gray-700 font-medium mb-2">Email</label>
+                <input type="email" placeholder="votre.email@exemple.com" class="form-input w-full p-3 border border-gray-300 bg-gray-50" value="${formData.email}" onchange="updateFormData('email', this.value)" required>
+              </div>
+              <div class="animate-fade-in" style="animation-delay: 0.4s;">
+                <label class="block text-gray-700 font-medium mb-2">Téléphone</label>
+                <input type="tel" placeholder="Votre numéro" class="form-input w-full p-3 border border-gray-300 bg-gray-50" value="${formData.phone}" onchange="updateFormData('phone', this.value)" required>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+     
+      // Navigation Buttons
+      const buttonsDiv = document.createElement('div');
+      buttonsDiv.className = 'flex justify-between mt-8';
+     
+      if (currentStep > 1) {
+        const prevButton = document.createElement('button');
+        prevButton.type = 'button';
+        prevButton.className = 'bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-8 rounded-2xl underline-btn';
+        prevButton.textContent = 'Précédent';
+        prevButton.onclick = prevStep;
+        buttonsDiv.appendChild(prevButton);
+      }
+     
+      const nextButton = document.createElement('button');
+      nextButton.type = currentStep === totalSteps ? 'submit' : 'button';
+      nextButton.className = `submit-btn bg-var(--secondary) hover:bg-orange-600 text-white font-semibold py-3 px-12 rounded-2xl`;
+      nextButton.textContent = currentStep === totalSteps ? 'Envoyer' : 'Suivant';
+      nextButton.onclick = currentStep === totalSteps ? submitForm : nextStep;
+      buttonsDiv.appendChild(nextButton);
+     
+      bookingForm.appendChild(buttonsDiv);
+    }
+
+    // Form functions
+    function updateFormData(field, value) {
+      formData[field] = value;
+    }
+
+    function updateGuests(change) {
+      const newValue = Math.max(1, formData.guests + change);
+      updateFormData('guests', newValue);
+      renderFormStep();
+    }
+
+    function nextStep() {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        updateStepIndicators();
+        renderFormStep();
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) {
+        currentStep--;
+        updateStepIndicators();
+        renderFormStep();
+      }
+    }
+
+    function updateStepIndicators() {
+      const steps = document.querySelectorAll('#bookingSteps > div');
+      steps.forEach((step, index) => {
+        const stepCircle = step.querySelector('.step-circle');
+        step.classList.toggle('step-active', index + 1 === currentStep);
+        stepCircle.className = `step-circle w-12 h-12 flex items-center justify-center rounded-full ${
+          index + 1 === currentStep ? 'bg-var(--primary) text-white' : 'bg-gray-200 text-gray-500'
+        }`;
+      });
+    }
+
+    function generateSummary() {
+      const selectedPackage = siteConfig.packages.find(pkg => pkg.id === formData.packageId);
+      const totalPrice = selectedPackage.price * (selectedPackage.format === 'solo' ? formData.guests : (selectedPackage.format === 'groupe' ? formData.guests : 1));
+      const levelMap = {
+        tome1: 'Tome 1 - Débutant',
+        tome2: 'Tome 2 - Intermédiaire',
+        tome3: 'Tome 3 - Avancé',
+        tome4: 'Tome 4 - Expert'
+      };
+     
+      return `📚 INSCRIPTION COURS ARABE
+
+👤 Client: ${formData.firstName} ${formData.lastName}
+📞 Téléphone: ${formData.phone}
+📧 Email: ${formData.email}
+
+📋 DÉTAIL DE L'INSCRIPTION:
+• Forfait: ${selectedPackage.title}
+• Niveau: ${levelMap[formData.level]}
+• Prix unitaire: €${selectedPackage.price} ${selectedPackage.type === 'horaire' ? '/heure' : selectedPackage.type === 'annuel' ? '/an' : selectedPackage.type === 'mensuel' ? '/mois' : '/semaine'}
+• Participants: ${formData.guests}
+• Prix total: €${totalPrice}
+• Date de début: ${formData.startDate}
+• Demandes spéciales: ${formData.specialRequests || 'Aucune'}
+
+Merci de confirmer cette inscription.`;
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+     
+      const summary = generateSummary();
+      const whatsappPhone = '0644762721';
+      
+      // WhatsApp link
+      const whatsappUrl = `https://wa.me/${whatsappPhone.replace(/\D/g, '')}?text=${encodeURIComponent(summary)}`;
+      window.open(whatsappUrl, '_blank');
+     
+      const orderSuccess = document.getElementById('order-success');
+      orderSuccess.classList.remove('hidden');
+      setTimeout(() => {
+        orderSuccess.classList.add('hidden');
+        resetForm();
+      }, 3000);
+    }
+
+    function resetForm() {
+      formData = {
+        packageId: 'monthly-solo',
+        level: 'tome1',
+        guests: 1,
+        specialRequests: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        startDate: ''
+      };
+      currentStep = 1;
+      updateStepIndicators();
+      renderFormStep();
+    }
+  </script>
+</body>
+</html>
